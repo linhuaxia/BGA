@@ -1,0 +1,86 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+        a {
+            color: #434A54;
+        }
+
+        .list-group panel li {
+            font-size: 12px;
+        }
+
+        .list-group-item {
+            padding: 10px 15px 10px 20px !important;
+        }
+
+        .glyphicon-chevron-right {
+            float: right;
+            padding-right: 10px;
+        }
+    </style>
+
+}
+<script type="text/javascript">
+    $(function () {
+        $(".list-group-item[data-toggle='collapse']").click(function () {
+            var CurrentEleHref = $(this).attr("href");
+            console.log("CurrentEleHref=" + CurrentEleHref);
+            $(this).parent().parent().find("div[class='in']").each(function (index, item) {
+                console.log("item.ID=" + $(this).attr("id"));
+                if (CurrentEleHref != $(this).attr("id") && CurrentEleHref != "#" + $(this).attr("id")) {
+                    $(this).removeClass("in");
+                    $(this).addClass("collapse");
+                }
+
+            });
+        });
+    });
+</script>
+
+<div class="panel-body">
+    <div class="container-fluid">
+        <!--documents-->
+        <div class="row row-offcanvas row-offcanvas-left">
+            <div class="sidebar-offcanvas" role="navigation">
+                <ul class="list-group panel">
+
+                    <li>
+                        <a href="#MENUsydtem" class="list-group-item " data-toggle="collapse">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            基础数据管理
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                        <div class="collapse" id="MENUsydtem">
+
+                            <a href="@Url.Action("Index","Store")" target="main" class="list-group-item">
+                                <i class="glyphicon glyphicon-bitcoin"></i>
+                                店铺管理
+                            </a>
+                            <a href="@Url.Action("Index","AppVersion")" target="main" class="list-group-item">
+                                <i class="glyphicon glyphicon-bitcoin"></i>
+                                APP版本管理
+                            </a>
+                            <a href="@Url.Action("Index","Category")" target="main" class="list-group-item">
+                                <i class="glyphicon glyphicon-bitcoin"></i>
+                                分类管理
+                            </a>
+                            <a href="@Url.Action("Index","Music")" target="main" class="list-group-item">
+                                <i class="glyphicon glyphicon-bitcoin"></i>
+                                音乐管理
+                            </a>
+                            <a href="@Url.Action("MainSetting","Profiles")" target="main" class="list-group-item">
+                                <i class="glyphicon glyphicon-bitcoin"></i>
+                                系统设置
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

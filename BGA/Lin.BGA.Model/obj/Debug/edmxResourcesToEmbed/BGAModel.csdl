@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BGAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AppVersionInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SRC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoryInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SortID" Type="Int32" Nullable="false" />
+    <Property Name="Enable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MusicInfo" Relationship="Self.FK_MusicInfo_CategoryInfo" FromRole="CategoryInfo" ToRole="MusicInfo" />
+  </EntityType>
+  <EntityType Name="MusicInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SortID" Type="Int32" Nullable="false" />
+    <Property Name="Enable" Type="Boolean" Nullable="false" />
+    <Property Name="SRC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CategoryInfo" Relationship="Self.FK_MusicInfo_CategoryInfo" FromRole="MusicInfo" ToRole="CategoryInfo" />
+    <Property Name="PlayTime" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StoreInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_MusicInfo_CategoryInfo">
+    <End Role="CategoryInfo" Type="Self.CategoryInfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MusicInfo" Type="Self.MusicInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MusicInfo">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BGAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppVersionInfo" EntityType="Self.AppVersionInfo" />
+    <EntitySet Name="CategoryInfo" EntityType="Self.CategoryInfo" />
+    <EntitySet Name="MusicInfo" EntityType="Self.MusicInfo" />
+    <EntitySet Name="StoreInfo" EntityType="Self.StoreInfo" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_MusicInfo_CategoryInfo" Association="Self.FK_MusicInfo_CategoryInfo">
+      <End Role="CategoryInfo" EntitySet="CategoryInfo" />
+      <End Role="MusicInfo" EntitySet="MusicInfo" />
+    </AssociationSet>
+    <EntitySet Name="ProfilesInfo" EntityType="BGAModel.ProfilesInfo" />
+  </EntityContainer>
+  <EntityType Name="ProfilesInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

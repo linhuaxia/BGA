@@ -1,0 +1,71 @@
+﻿@using Lin.BGA.Model;
+
+@{
+    ViewBag.Title = "EamilSetting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ProfilesInfo EnableUpdateTimeBegin = (ProfilesInfo)ViewBag.EnableUpdateTimeBegin;
+    ProfilesInfo EnableUpdateTimeEnd = (ProfilesInfo)ViewBag.EnableUpdateTimeEnd;
+    ProfilesInfo EnableUpdateTimeInterval = (ProfilesInfo)ViewBag.EnableUpdateTimeInterval;
+}
+
+@section head{
+    <script type="text/javascript">
+        function OnSuccess(data) {
+            alert(data.ErrorMsg);
+            if (data.ErrorCode != 0) {
+                return;
+            }
+            location.reload();
+
+        }
+        function OnBegin() {
+
+        }
+    </script>
+}
+
+@using (Ajax.BeginForm("MainSetting", new AjaxOptions { HttpMethod = "Post", OnSuccess = "OnSuccess", OnBegin = "OnBegin", LoadingElementId = "loadingToast" }))
+{
+    @Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<input type="hidden" id="TimeStamp" name="TimeStamp" value="@DateTime.Now.ToString("fffff")" />
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table1">
+    <tr>
+        <td colspan="3" class="td1_1">
+            客户端允许检查设置
+        </td>
+    </tr>
+    <tr>
+        <td class="td1_2">
+            每天 开始时间 
+        </td>
+        <td class="td1_3">
+            @Html.TextBox("EnableUpdateTimeBegin", EnableUpdateTimeBegin.Value) 时
+        </td>
+    </tr>
+    <tr>
+        <td class="td1_2">
+            每天 结束时间
+        </td>
+        <td class="td1_3">
+            @Html.TextBox("EnableUpdateTimeEnd", EnableUpdateTimeEnd.Value) 时
+        </td>
+    </tr>
+    <tr>
+        <td class="td1_2">
+            检查频率
+        </td>
+        <td class="td1_3">
+            @Html.TextBox("EnableUpdateTimeInterval", EnableUpdateTimeInterval.Value) 毫秒
+        </td>
+    </tr>
+    <tr>
+        <td class="td1_2" colspan="2">
+            <input type="submit" value="提交" class="btn btn-default" />
+        </td>
+    </tr>
+
+</table>
+
+}

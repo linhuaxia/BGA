@@ -1,0 +1,51 @@
+﻿@model Lin.BGA.Model.CategoryInfo
+
+@{
+    ViewBag.Title = "新建";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+    <script type="text/javascript">
+        function OnSuccess(data) {
+            alert(data.ErrorMsg);
+            if (data.ErrorCode != 0) {
+                return;
+            }
+            parent.location.reload();
+
+        }
+        function OnBegin() {
+
+        }
+    </script>
+}
+
+@using (Ajax.BeginForm("Create", new AjaxOptions { HttpMethod = "Post", OnSuccess = "OnSuccess", OnBegin = "OnBegin", LoadingElementId = "loadingToast" }))
+{
+    @Html.AntiForgeryToken()
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table1">
+        <tr>
+            <td class="td1_2">
+                名称
+            </td>
+            <td class="td1_3">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                是否可用
+            </td>
+            <td class="td1_3">
+                @Html.EditorFor(model => model.Enable) 正常
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2" colspan="2">
+                <input type="submit" value="提交" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+}

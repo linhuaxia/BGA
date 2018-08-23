@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "音乐管理平台";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title></title>
+    <script type="text/javascript">
+        function ReloadLeft() {
+            // window.open("/menu.aspx", "left");
+            left.UpdateCount();
+        }
+
+        function changeFrameHeight() {
+            var ifm = document.getElementsByName("left");
+            ifm.height = document.documentElement.clientHeight;
+            ifm = document.getElementsByName("main");
+            ifm.height = document.documentElement.clientHeight;
+        }
+        window.onresize = function () {
+            changeFrameHeight();
+        } 
+    </script>
+    <script type="text/javascript">
+        function FullScreen() {
+            try {
+                var docElm = document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                else if (docElm.msRequestFullscreen) {
+                    docElm.msRequestFullscreen();
+                }
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+            } catch (e) {
+                $("#LiFullScreen").hide();
+                //console.log("用户当前浏览器不支持全屏");
+            }
+        }
+
+        function FullScreenCancel() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            }
+            else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+        }
+
+
+    </script>
+    <style type="text/css">
+        .MainIndexTable, MainIndexTable tr, MainIndexTable td {
+            margin:0;padding:0;border:none;vertical-align:top;
+        }
+    </style>
+</head>
+
+<body style="background-color:#F1F2F6">
+    <table class="MainIndexTable"  style="width:100%;height:100%;border:none">
+        <tr>
+            <td colspan="3" style="height:55px;">
+                <iframe src="/Home/Top" style="width:100%;height:55px;"
+                        name="topFrame" scrolling="No" noresize="noresize" frameBorder="0" id="topFrame" target="mainFrame"></iframe>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:200px;height:100%;">
+                <iframe src="/Home/menu" style="width:200px;height:100%;min-height:90vh;" onload="changeFrameHeight()"
+                        name="left" frameBorder="0" noresize="noresize" scrolling="No"></iframe>
+            </td>
+            <td style="width:2px;">&nbsp;</td>
+            <td style="width:100%;height:100%;">
+                <iframe src="@Url.Action("Note","Home")" style="width:100%;height:100%;min-height:90vh;" onload="changeFrameHeight()"
+                        name="main" frameBorder="0" noresize="noresize" scrolling="yes"></iframe>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

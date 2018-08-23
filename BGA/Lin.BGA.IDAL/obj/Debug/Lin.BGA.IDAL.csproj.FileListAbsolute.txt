@@ -1,0 +1,17 @@
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\Lin.BGA.IDAL.dll.config
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\Lin.BGA.IDAL.dll
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\Lin.BGA.IDAL.pdb
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\EntityFramework.dll
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\Lin.BGA.Model.dll
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\Lin.BGA.Model.pdb
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\Lin.BGA.Model.dll.config
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\EntityFramework.xml
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.csprojResolveAssemblyReference.cache
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.csproj.CoreCompileInputs.cache
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.csproj.CopyComplete
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.dll
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.pdb

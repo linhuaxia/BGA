@@ -1,0 +1,64 @@
+.container{
+	max-width: 1200px;
+	overflow:hidden;
+}
+.container{
+	margin:auto;
+}
+.mySlideshow .animated{
+	position:absolute;
+}
+.mySlideshow li img {
+    background-position:center;
+    background-repeat:no-repeat;
+}
+/*.first a,
+.first img{
+	display:block;
+}
+.first a{
+	top:80px;
+	left:39%;
+	margin-left:-165px;
+}
+.first div{
+	font-family:'Open Sans Condensed', sans-serif;
+	font-size:50px;
+	bottom:80px;
+	left:39%;
+	width:320px;
+	text-align:center;
+	margin-left:-160px;
+}
+.second img{
+	top: 160px;
+	right: 19%;
+}
+.first{
+	background:url("/Scripts/jQueryEdslider/images/first.jpg") center no-repeat;
+}
+
+.second{
+	background:url("/Scripts/jQueryEdslider/images/second.jpg") center no-repeat;
+}
+.third{
+	background:url("/Scripts/jQueryEdslider/images/third.jpg") center no-repeat;
+}
+.third img{
+	top:100px;
+	left: 23%;
+}
+.fourth{
+	background:url("/Scripts/jQueryEdslider/images/fourth.jpg") center no-repeat;
+}
+.fourth img{
+	top:320px;
+	right:8%;
+}
+.fifth{
+	background:url("/Scripts/jQueryEdslider/images/fifth.jpg") center no-repeat;
+}
+.fifth img{
+	top:120px;
+	left:21%;
+}*/

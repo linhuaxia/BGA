@@ -1,0 +1,107 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using Lin.BGA.Model;
+@using Lin.BGA.IBLL;
+@using Lin.BGA.BLLFactory;
+
+@model IPagedList<MusicInfo>
+
+@{
+    ViewBag.Title = "音乐管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <script type="text/javascript">
+        function BtnDelete_Click(ItemID) {
+            $.post("@Url.Action("Delete")", { ID: ItemID }, function (data) {
+                alert(data.ErrorMsg);
+                if (data.ErrorCode == 0) {
+                    location.reload();
+                }
+            });
+        }
+
+    </script>
+}
+
+
+    <p class="pAdd">
+        <a href="javascript:Layer('@Url.Action("Create")')" class="btn btn-default">
+            添加
+        </a>
+    </p>
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table1">
+    <tr>
+        <td colspan="6" style="height: 30px" class="td1_1">
+            @ViewBag.Title
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            名称
+        </th>
+        <th>
+            分类
+        </th>
+        <th>
+            序号
+        </th>
+        <th>
+            是否可用
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryInfo.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SortID)
+        </td>
+        <td>
+            @SysEnum.EnableStatus.GetName(item.Enable)
+        </td>
+        <td>
+            <a href="javascript:Layer('@Url.Action("Edit", new { id = item.ID })')" title="编辑">
+                编辑
+            </a>
+            |
+            <a href="javascript:BtnDelete_Click(@item.ID)" title="删除"
+               onclick="return confirm('确定要删除数据吗？')">
+                删除
+            </a>
+
+        </td>
+    </tr>
+    }
+
+</table>
+<div class="PageCotainer">
+    <p class="PageInfoMain">共 @Model.PageCount 页 | @Model.TotalItemCount 条数据</p>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    Name = ViewBag.Name,
+    CategoryID = ViewBag.DdlCategory
+}))
+</div>
+
+

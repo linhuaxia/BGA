@@ -1,0 +1,84 @@
+﻿@using Lin.BGA.Model
+
+@model StoreInfo
+
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <script type="text/javascript">
+        function OnSuccess(data) {
+            alert(data.ErrorMsg);
+            if (data.ErrorCode != 0) {
+                return;
+            }
+            top.main.location.reload();
+
+        }
+        function OnBegin() {
+            //do something before post data
+
+        }
+        $(function () {
+            $("#Password").val("");
+
+        });
+    </script>
+
+
+
+}
+<h2>@ViewBag.Title</h2>
+
+@using (Ajax.BeginForm("Edit", new AjaxOptions { HttpMethod = "post", OnSuccess = "OnSuccess", OnBegin = "OnBegin", LoadingElementId = "loadingToast" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table1">
+    <tr>
+        <td class="td1_2">
+            名称
+        </td>
+        <td class="td1_3">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td class="td1_2">
+            编号
+        </td>
+        <td class="td1_3">
+            @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td class="td1_2">
+            登录设备信息
+        </td>
+        <td class="td1_3">
+            @Html.EditorFor(model => model.IP, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="red2">如客户端提示设备异常，请删除登录设备信息。Ps:此功能系统记录登录设备信息，可控制帐户只在指定机器登录</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="td1_2">
+            密码
+        </td>
+        <td class="td1_3">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="red2">如您不希望重置密码，请不填写此项</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="td1_2" colspan="2">
+            <input type="submit" value="提交" class="btn btn-default" />
+        </td>
+    </tr>
+</table>
+
+}
+
+

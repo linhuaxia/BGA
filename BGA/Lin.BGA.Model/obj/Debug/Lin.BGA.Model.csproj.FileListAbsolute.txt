@@ -1,0 +1,16 @@
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\Lin.BGA.Model.dll.config
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\Lin.BGA.Model.dll
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\Lin.BGA.Model.pdb
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\EntityFramework.dll
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\Newtonsoft.Json.dll
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\EntityFramework.xml
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\Newtonsoft.Json.xml
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\Develop\BGA\BGA\Lin.BGA.Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.csproj.CoreCompileInputs.cache
+D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.csproj.CopyComplete
+D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.dll
+D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.pdb
+D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.csprojResolveAssemblyReference.cache

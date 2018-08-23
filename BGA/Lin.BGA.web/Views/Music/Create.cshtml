@@ -1,0 +1,104 @@
+﻿@using Lin.BGA.Model
+
+@model MusicInfo
+
+@{
+    ViewBag.Title = "新建";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+    <script src="~/Scripts/jquery.form.min.js"></script>
+
+    <script type="text/javascript">
+    $(function () {
+        $('#uploadForm').on('submit', function (e) {
+            //InitDataForSubmit();
+            e.preventDefault(); // <-- important
+            $("#loadingToast").show();
+            $(this).ajaxSubmit({
+                beforeSend: function () {
+
+                },
+                uploadProgress: function (event, position, total, percentComplete) {
+                },
+                dataType: "json",
+                success: function (data) {
+                    $("#loadingToast").hide();
+
+                    alert(data.ErrorMsg);
+                    if (data.ErrorCode == 0) {
+                        parent.location.reload();
+                    }
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+
+}
+
+@using (Html.BeginForm("Create","Music", FormMethod.Post, new { id = "uploadForm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table1">
+        <tr>
+            <td class="td1_2">
+                名称
+            </td>
+            <td class="td1_3">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                文件选择
+            </td>
+            <td class="td1_3">
+                <input type="file" name="FileMain" id="FileMain" class="form-control file-input" />
+                <div class="red2">请选择音频文件,并保证单个文件大小不超过20Mb</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="td1_2">
+                所属分类
+            </td>
+            <td class="td1_3">
+                @Html.DropDownListFor(model => model.CategoryID, ViewBag.listPlanCategory as IEnumerable<SelectListItem>, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                排序号(默认0，越大越靠前)
+            </td>
+            <td class="td1_3">
+                @Html.EditorFor(model => model.SortID, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                播放次数
+            </td>
+            <td class="td1_3">
+                @Html.EditorFor(model => model.PlayTime, new {Value=1, htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                是否可用
+            </td>
+            <td class="td1_3">
+                @Html.EditorFor(model => model.Enable) 正常
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2" colspan="2">
+                <input type="submit" value="提交" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+}

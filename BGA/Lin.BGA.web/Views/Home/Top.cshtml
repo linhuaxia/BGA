@@ -1,0 +1,71 @@
+﻿@using Lin.BGA.Model;
+
+@model Lin.BGA.web.Models.AdminInfo
+@{
+    ViewBag.Title = "Top";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+<script type="text/javascript">
+        function BtnLogin_Click() {
+             $.get("@Url.Action("Logout", "Login", new { area = "MP" })", function () {
+                location.href = "@Url.Action("index","Login")";
+            });
+        }
+</script>
+
+}
+
+<nav class="navbar navbar-default" style="background-color:#F1F2F6;">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="@Url.Action("Note","Home")" target="main">
+                <img src="~/images/logo.png" alt="Brand" style="width:20px;" />
+            </a>
+            <div class="collapse navbar-collapse" >
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            @Model.Name
+
+                        </a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li>
+                        <a href="javascript:BtnLogin_Click();">注销</a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li>
+                        <a href="@Url.Action("Pwd", "User")" tabindex="-1" target="main">修改密码</a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li>
+                        <a href="@Url.Action("ReLogin", "Login")" tabindex="-1" target="_parent">重新登录</a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li>
+                        <a href="javascript:parent.FullScreen();" tabindex="-1">全屏</a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li>
+                        <a href="javascript:parent.FullScreenCancel();" tabindex="-1">退出全屏</a>
+                    </li>
+                </ul>
+
+
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="@Url.Action("Note","Home")" target="main" style="color:#ff6a00;">音乐管理后台</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</nav>
+
+
+
+
+
