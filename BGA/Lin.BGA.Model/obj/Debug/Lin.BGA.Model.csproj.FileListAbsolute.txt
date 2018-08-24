@@ -13,4 +13,3 @@ D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.csproj.CoreCompileInput
 D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.csproj.CopyComplete
 D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.dll
 D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.pdb
-D:\Develop\BGA\BGA\Lin.BGA.Model\obj\Debug\Lin.BGA.Model.csprojResolveAssemblyReference.cache

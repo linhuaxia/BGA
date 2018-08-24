@@ -14,4 +14,3 @@ D:\Develop\BGA\BGA\Tool\obj\Debug\Tool.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Tool\obj\Debug\Tool.csproj.CopyComplete
 D:\Develop\BGA\BGA\Tool\obj\Debug\Tool.dll
 D:\Develop\BGA\BGA\Tool\obj\Debug\Tool.pdb
-D:\Develop\BGA\BGA\Tool\obj\Debug\Tool.csprojResolveAssemblyReference.cache

@@ -1,5 +1,3 @@
-D:\Develop\BGA\BGA\Lin.BGA.APIClient\obj\Debug\Lin.BGA.APIClient.csproj.CoreCompileInputs.cache
-D:\Develop\BGA\BGA\Lin.BGA.APIClient\obj\Debug\Lin.BGA.APIClient.csprojResolveAssemblyReference.cache
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\bin\Debug\Lin.BGA.APIClient.dll
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\bin\Debug\Lin.BGA.APIClient.pdb
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\bin\Debug\Lin.BGA.Model.dll
@@ -14,6 +12,8 @@ D:\Develop\BGA\BGA\Lin.BGA.APIClient\bin\Debug\Tool.pdb
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\bin\Debug\Newtonsoft.Json.xml
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\bin\Debug\EntityFramework.xml
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\Develop\BGA\BGA\Lin.BGA.APIClient\obj\Debug\Lin.BGA.APIClient.csprojResolveAssemblyReference.cache
+D:\Develop\BGA\BGA\Lin.BGA.APIClient\obj\Debug\Lin.BGA.APIClient.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\obj\Debug\Lin.BGA.APIClient.csproj.CopyComplete
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\obj\Debug\Lin.BGA.APIClient.dll
 D:\Develop\BGA\BGA\Lin.BGA.APIClient\obj\Debug\Lin.BGA.APIClient.pdb

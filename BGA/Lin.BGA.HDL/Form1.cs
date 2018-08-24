@@ -34,11 +34,12 @@ namespace Lin.BGA.HDL
             LoadUI();
 
         }
-        private void LoginCheck()
+        public void LoginCheck()
         {
             if (!new StoreHelper().IsLoginFit())
             {
                 var formLogin = new FormLogin();
+                formLogin.StartPosition = FormStartPosition.CenterParent;
                 formLogin.Show(this);
                 return;
             }
@@ -176,7 +177,7 @@ namespace Lin.BGA.HDL
             int EnableUpdateTimeBegin = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeBegin").Value);
             int EnableUpdateTimeEnd = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeEnd").Value);
             int EnableUpdateTimeInterval = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeInterval").Value);
-            if ((EnableUpdateTimeInterval / timer1.Interval) >= TimeTickTimes)
+            if ((EnableUpdateTimeInterval / timer1.Interval) <= TimeTickTimes)
             {
                 TimeTickTimes = 0;
                 if (EnableUpdateTimeBegin >= nowDate.Hour || EnableUpdateTimeEnd <= nowDate.Hour)

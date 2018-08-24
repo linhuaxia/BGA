@@ -20,7 +20,6 @@ namespace Lin.BGA.HDL
         {
             InitializeComponent();
         }
-
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             var info = new StoreInfo();
@@ -46,8 +45,12 @@ namespace Lin.BGA.HDL
             if (!new StoreHelper().IsLoginFit())
             {
                 Application.Exit();
+                return;
             }
-            
+            FormMain frm1 = (FormMain)this.Owner;
+            frm1.LoginCheck();
+
+
         }
     }
 }
