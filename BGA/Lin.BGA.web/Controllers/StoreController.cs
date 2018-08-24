@@ -82,7 +82,7 @@ namespace Lin.BGA.web.Controllers
             }
             else
             {
-                info.Password = "hiadilao123456";
+                info.Password = "haidilao123456";
             }
             info.Password= Tool.Md5Helper.Md5(info.Password);
             StoreBLL.Create(info);

@@ -39,7 +39,9 @@ namespace Lin.BGA.HDL
             {
                 var formLogin = new FormLogin();
                 formLogin.Show(this);
+                return;
             }
+            labelStoreName.Text = "门店名称:" + new StoreHelper().GetLoginInfo().Name;
         }
 
         private  void LoadUI()

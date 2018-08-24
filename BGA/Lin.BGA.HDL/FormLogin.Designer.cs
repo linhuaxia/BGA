@@ -62,7 +62,7 @@
             this.TxtCode.Location = new System.Drawing.Point(188, 106);
             this.TxtCode.Name = "TxtCode";
             this.TxtCode.Size = new System.Drawing.Size(189, 21);
-            this.TxtCode.TabIndex = 2;
+            this.TxtCode.TabIndex = 1;
             // 
             // label2
             // 
@@ -103,6 +103,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormLogin";

@@ -53,7 +53,7 @@ namespace Lin.BGA.web.Areas.API.Controllers
             }
             infoExist.IP = info.IP;
             infoExist.CreateDate = DateTime.Now;
-            StoreBLL.Edit(info);
+            StoreBLL.Edit(infoExist);
             var result = new
             {
                 infoExist.Name,
