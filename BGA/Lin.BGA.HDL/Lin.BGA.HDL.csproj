@@ -129,6 +129,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReadMe%28使用说明%29.txt" />
     <Content Include="Resource\Images\bg.jpg" />
     <Content Include="Resource\Images\favicon.ico" />
     <Content Include="Resource\Images\Logo.png" />
