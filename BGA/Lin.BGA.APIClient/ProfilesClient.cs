@@ -19,24 +19,18 @@ namespace Lin.BGA.APIClient
         }
 
 
-        public ProfilesSettingInfo GetAllConfig()
+        public List<ProfilesInfo> GetAllConfig()
         {
             string URL = "Profiles/GetAllConfig";
 
             URL = APIHellper.GetAPI(URL, APIAccessToken);
             string TaskJson =  apiHelper.GetHttpData(URL);
 
-            var result = apiHelper.APIJsonDeserialize<ProfilesSettingInfo>(TaskJson);
+            var result = apiHelper.APIJsonDeserialize<List<ProfilesInfo>>(TaskJson);
             
             return result;
         }
 
-        public class ProfilesSettingInfo
-        {
-            public int EnableUpdateTimeBegin { get; set; }
-            public int EnableUpdateTimeEnd { get; set; }
-            public int EnableUpdateTimeInterval { get; set; }
-        }
 
 
     }

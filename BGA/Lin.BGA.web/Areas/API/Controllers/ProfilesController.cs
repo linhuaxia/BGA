@@ -23,12 +23,7 @@ namespace Lin.BGA.web.Areas.API.Controllers
         protected IProfilesInfoService ProfilesBLL = AbstractFactory.CreateProfilesInfoService();
         public JsonResult GetAllConfig()
         {
-            var result = new
-            {
-                EnableUpdateTimeBegin = ProfilesBLL.Get("EnableUpdateTimeBegin", true),
-                EnableUpdateTimeEnd = ProfilesBLL.Get("EnableUpdateTimeEnd", true),
-                EnableUpdateTimeInterval = ProfilesBLL.Get("EnableUpdateTimeInterval", true)
-            };
+            var result = ProfilesBLL.GetList(a => true);
             return Json(new APIJson(0, "", result),JsonRequestBehavior.AllowGet);
         }
     }

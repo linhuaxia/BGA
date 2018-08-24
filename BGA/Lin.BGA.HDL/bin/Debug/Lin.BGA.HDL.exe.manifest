@@ -103,26 +103,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.APIClient.dll" size="13824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.APIClient.dll" size="13312">
       <assemblyIdentity name="Lin.BGA.APIClient" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OpJNFmLe9cmb76pchdMpMb8IBsyIhvRd3UQnScwfMyA=</dsig:DigestValue>
+        <dsig:DigestValue>zGz0fbC9KdOkFsQvnJqyRz6R0lQkgcgJ5VJsOfui9HY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.HDL.exe" size="49152">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.HDL.exe" size="49664">
       <assemblyIdentity name="Lin.BGA.HDL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rnvgkY2430PPMPnj849Pyy0qOO7JUrMOEqZHar8muNQ=</dsig:DigestValue>
+        <dsig:DigestValue>m7IFnPOQsherl0wwj608OZ+2IsAXropU86JbglPi1BI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

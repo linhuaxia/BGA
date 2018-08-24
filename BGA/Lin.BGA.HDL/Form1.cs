@@ -172,11 +172,14 @@ namespace Lin.BGA.HDL
             TimeTickTimes++;
 
             DateTime nowDate = DateTime.Now;
-            ProfilesSettingInfo infoSetting = new ProfilesClient().GetAllConfig();
-            if ((infoSetting.EnableUpdateTimeInterval / timer1.Interval) >= TimeTickTimes)
+            var listProfiles = new ProfilesClient().GetAllConfig();
+            int EnableUpdateTimeBegin = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeBegin").Value);
+            int EnableUpdateTimeEnd = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeEnd").Value);
+            int EnableUpdateTimeInterval = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeInterval").Value);
+            if ((EnableUpdateTimeInterval / timer1.Interval) >= TimeTickTimes)
             {
                 TimeTickTimes = 0;
-                if (infoSetting.EnableUpdateTimeBegin >= nowDate.Hour || infoSetting.EnableUpdateTimeEnd <= nowDate.Hour)
+                if (EnableUpdateTimeBegin >= nowDate.Hour || EnableUpdateTimeEnd <= nowDate.Hour)
                 {
                     LoadUI();
                 }
