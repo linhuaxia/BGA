@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.APIClient.dll" size="13312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.APIClient.dll" size="13824">
       <assemblyIdentity name="Lin.BGA.APIClient" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4j2JcQB0fs0pddUIuBEYH7G6pGB0ptKOl81rAOzSUFo=</dsig:DigestValue>
+        <dsig:DigestValue>OpJNFmLe9cmb76pchdMpMb8IBsyIhvRd3UQnScwfMyA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -122,7 +122,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+PPcgZQcPk6JW7/w13Fdu4W+fqKI1iMzNUr5fjYcrII=</dsig:DigestValue>
+        <dsig:DigestValue>rnvgkY2430PPMPnj849Pyy0qOO7JUrMOEqZHar8muNQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -134,7 +134,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rdZxTeFY72RK3NZoZNlFZRCZ/hahH48enWyIYFFZfRo=</dsig:DigestValue>
+        <dsig:DigestValue>QiqivqL6oyTQSJKzHZ55pvquMJUQrDmaR1pAO9I/FIM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -170,7 +170,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>py02/6FwxofXbqnxh6zIF+SkDhrXND2t7ZJA2RBX07I=</dsig:DigestValue>
+        <dsig:DigestValue>O+lIX3AfWvlTpFXEO0AfpcYkYz4S9ypr6gV2dwrAA0o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

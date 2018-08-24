@@ -29,7 +29,7 @@ namespace Lin.BGA.web.Areas.API.Controllers
                 EnableUpdateTimeEnd = ProfilesBLL.Get("EnableUpdateTimeEnd", true),
                 EnableUpdateTimeInterval = ProfilesBLL.Get("EnableUpdateTimeInterval", true)
             };
-            return Json(new APIJson(0, "", result));
+            return Json(new APIJson(0, "", result),JsonRequestBehavior.AllowGet);
         }
     }
 }

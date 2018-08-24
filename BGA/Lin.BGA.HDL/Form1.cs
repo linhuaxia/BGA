@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 using Lin.BGA.APIClient;
 using Lin.BGA.Model;
+using static Lin.BGA.APIClient.ProfilesClient;
 
 namespace Lin.BGA.HDL
 {
@@ -165,13 +166,22 @@ namespace Lin.BGA.HDL
                
             }
         }
-
+        private static int TimeTickTimes = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            var categoryClient = new APIClient.CategoryClient();
-            listCategory = categoryClient.GetList();
-            InitDataAsync();
-            LoadUI();
+            TimeTickTimes++;
+
+            DateTime nowDate = DateTime.Now;
+            ProfilesSettingInfo infoSetting = new ProfilesClient().GetAllConfig();
+            if ((infoSetting.EnableUpdateTimeInterval / timer1.Interval) >= TimeTickTimes)
+            {
+                TimeTickTimes = 0;
+                if (infoSetting.EnableUpdateTimeBegin >= nowDate.Hour || infoSetting.EnableUpdateTimeEnd <= nowDate.Hour)
+                {
+                    LoadUI();
+                }
+            }
+            
         }
 
         private void axWindowsMediaPlayer1_StatusChange(object sender, EventArgs e)

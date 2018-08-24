@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="APIHellper.cs" />
     <Compile Include="BaseAPIClient.cs" />
+    <Compile Include="ProfilesClient.cs" />
     <Compile Include="StoreClient.cs" />
     <Compile Include="CategoryClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
