@@ -25,6 +25,11 @@ namespace Lin.BGA.IBLL
        
     }   
 	
+	public partial interface IMusicLogInfoService : IBaseService<MusicLogInfo>
+    {
+       
+    }   
+	
 	public partial interface IProfilesInfoService : IBaseService<ProfilesInfo>
     {
        

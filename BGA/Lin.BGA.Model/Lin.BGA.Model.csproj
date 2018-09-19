@@ -79,6 +79,9 @@
     <Compile Include="MusicInfo.cs">
       <DependentUpon>BGAModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MusicLogInfo.cs">
+      <DependentUpon>BGAModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ProfilesInfo.cs">
       <DependentUpon>BGAModel.tt</DependentUpon>
     </Compile>

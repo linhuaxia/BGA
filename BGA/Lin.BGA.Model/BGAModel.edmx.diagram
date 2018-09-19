@@ -12,6 +12,8 @@
         <EntityTypeShape EntityType="BGAModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="BGAModel.FK_MusicInfo_CategoryInfo" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BGAModel.ProfilesInfo" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BGAModel.MusicLogInfo" Width="1.5" PointX="5" PointY="7.875" />
+        <AssociationConnector Association="BGAModel.FK_MusicLogInfo_StoreInfo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

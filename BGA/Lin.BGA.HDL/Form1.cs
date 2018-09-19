@@ -121,6 +121,14 @@ namespace Lin.BGA.HDL
             axWindowsMediaPlayer1.settings.playCount = infoMusic.PlayTime;
             axWindowsMediaPlayer1.Ctlcontrols.play();
             labelStatus.Text = "现时播放音乐：" + infoMusic.Name;
+
+
+            MusicLogInfo infoMusicLog = new MusicLogInfo();
+            infoMusicLog.StoreID = new StoreHelper().GetLoginInfo().ID;
+            infoMusicLog.MusicName = infoMusic.Name;
+            infoMusicLog.CategoryName = infoMusic.CategoryInfo.Name;
+            infoMusicLog.CreateDate = DateTime.Now;
+            new MusicLogClient().CreateToClient(infoMusicLog);
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -187,7 +195,9 @@ namespace Lin.BGA.HDL
                     LabUpdateStatus.Text = DateTime.Now.ToString() + ":正在通讯，检查更新中。。。";
                     LoadUI();
                     AppVerionCheck();
+                    //new MusicLogClient().CreateToServer();
                     LabUpdateStatus.Text = string.Empty;
+
                 }
             }
             

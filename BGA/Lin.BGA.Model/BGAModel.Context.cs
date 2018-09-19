@@ -31,5 +31,6 @@ namespace Lin.BGA.Model
         public virtual DbSet<StoreInfo> StoreInfo { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<ProfilesInfo> ProfilesInfo { get; set; }
+        public virtual DbSet<MusicLogInfo> MusicLogInfo { get; set; }
     }
 }

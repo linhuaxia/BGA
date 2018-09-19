@@ -40,6 +40,14 @@ namespace Lin.BGA.DALFactory
 
         }
 		
+	    public static IMusicLogInfoDAL CreateMusicLogInfoDAL()
+        {
+
+		 string fullClassName = AssemblyNameSpace + ".MusicLogInfoDAL";
+          return CreateInstance(fullClassName) as IMusicLogInfoDAL;
+
+        }
+		
 	    public static IProfilesInfoDAL CreateProfilesInfoDAL()
         {
 

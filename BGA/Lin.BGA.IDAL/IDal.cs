@@ -25,6 +25,11 @@ namespace Lin.BGA.IDAL
       
     }
 	
+	public partial interface IMusicLogInfoDAL :IBaseDAL<MusicLogInfo>
+    {
+      
+    }
+	
 	public partial interface IProfilesInfoDAL :IBaseDAL<ProfilesInfo>
     {
       

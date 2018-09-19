@@ -26,6 +26,11 @@ namespace Lin.BGA.DAL
 
     }
 		
+	public partial class MusicLogInfoDAL :BaseDAL<MusicLogInfo>,IMusicLogInfoDAL
+    {
+
+    }
+		
 	public partial class ProfilesInfoDAL :BaseDAL<ProfilesInfo>,IProfilesInfoDAL
     {
 

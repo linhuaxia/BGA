@@ -56,6 +56,20 @@ namespace Lin.BGA.DALFactory
             set { _MusicInfoDAL = value; }
         }
 	
+		private IMusicLogInfoDAL _MusicLogInfoDAL;
+        public IMusicLogInfoDAL MusicLogInfoDAL
+        {
+            get
+            {
+                if(_MusicLogInfoDAL == null)
+                {
+                    _MusicLogInfoDAL = AbstractFactory.CreateMusicLogInfoDAL();
+                }
+                return _MusicLogInfoDAL;
+            }
+            set { _MusicLogInfoDAL = value; }
+        }
+	
 		private IProfilesInfoDAL _ProfilesInfoDAL;
         public IProfilesInfoDAL ProfilesInfoDAL
         {

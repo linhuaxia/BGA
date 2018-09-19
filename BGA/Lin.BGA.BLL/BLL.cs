@@ -40,6 +40,16 @@ namespace Lin.BGA.BLL
         }
     }   
 	
+	public partial class MusicLogInfoService :BaseService<MusicLogInfo>,IMusicLogInfoService
+    {
+    
+
+		 public override void SetCurrentDAL()
+        {
+            CurrentDAL = this.CurrentDBSession.MusicLogInfoDAL;
+        }
+    }   
+	
 	public partial class ProfilesInfoService :BaseService<ProfilesInfo>,IProfilesInfoService
     {
     

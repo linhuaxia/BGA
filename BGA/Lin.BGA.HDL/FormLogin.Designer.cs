@@ -72,7 +72,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "店铺编号";
+            this.label2.Text = "店铺密码";
             // 
             // TxtPassword
             // 

@@ -36,6 +36,16 @@
           <Property Name="SRC" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="PlayTime" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="MusicLogInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreID" Type="int" Nullable="false" />
+          <Property Name="MusicName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="ProfilesInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -79,16 +89,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MusicLogInfo_StoreInfo">
+          <End Role="StoreInfo" Type="Self.StoreInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MusicLogInfo" Type="Self.MusicLogInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoreInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MusicLogInfo">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BGAModelStoreContainer">
           <EntitySet Name="AppVersionInfo" EntityType="Self.AppVersionInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoryInfo" EntityType="Self.CategoryInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MusicInfo" EntityType="Self.MusicInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MusicLogInfo" EntityType="Self.MusicLogInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProfilesInfo" EntityType="Self.ProfilesInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StoreInfo" EntityType="Self.StoreInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_MusicInfo_CategoryInfo" Association="Self.FK_MusicInfo_CategoryInfo">
             <End Role="CategoryInfo" EntitySet="CategoryInfo" />
             <End Role="MusicInfo" EntitySet="MusicInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MusicLogInfo_StoreInfo" Association="Self.FK_MusicLogInfo_StoreInfo">
+            <End Role="StoreInfo" EntitySet="StoreInfo" />
+            <End Role="MusicLogInfo" EntitySet="MusicLogInfo" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -138,6 +167,7 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="MusicLogInfo" Relationship="BGAModel.FK_MusicLogInfo_StoreInfo" FromRole="StoreInfo" ToRole="MusicLogInfo" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -174,6 +204,11 @@
             <End Role="MusicInfo" EntitySet="MusicInfo" />
           </AssociationSet>
           <EntitySet Name="ProfilesInfo" EntityType="BGAModel.ProfilesInfo" />
+          <EntitySet Name="MusicLogInfo" EntityType="BGAModel.MusicLogInfo" />
+          <AssociationSet Name="FK_MusicLogInfo_StoreInfo" Association="BGAModel.FK_MusicLogInfo_StoreInfo">
+            <End Role="StoreInfo" EntitySet="StoreInfo" />
+            <End Role="MusicLogInfo" EntitySet="MusicLogInfo" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ProfilesInfo">
           <Key>
@@ -183,6 +218,31 @@
           <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="MusicLogInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreID" Type="Int32" Nullable="false" />
+          <Property Name="MusicName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StoreInfo" Relationship="BGAModel.FK_MusicLogInfo_StoreInfo" FromRole="MusicLogInfo" ToRole="StoreInfo" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_MusicLogInfo_StoreInfo">
+          <End Type="BGAModel.StoreInfo" Role="StoreInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BGAModel.MusicLogInfo" Role="MusicLogInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoreInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MusicLogInfo">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -251,6 +311,17 @@
               <MappingFragment StoreEntitySet="ProfilesInfo">
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MusicLogInfo">
+            <EntityTypeMapping TypeName="BGAModel.MusicLogInfo">
+              <MappingFragment StoreEntitySet="MusicLogInfo">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="MusicName" ColumnName="MusicName" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

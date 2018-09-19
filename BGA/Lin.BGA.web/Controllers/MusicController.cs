@@ -35,7 +35,7 @@ namespace Lin.BGA.web.Controllers
                 ViewBag.TxtName = Name;
             }
 
-            list = list.OrderByDescending(p => p.ID);
+            list = list.OrderBy(p => p.ID);
             return list;
         }
 

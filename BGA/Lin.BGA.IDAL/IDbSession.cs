@@ -18,6 +18,8 @@ namespace Lin.BGA.IDAL
 	
 		IMusicInfoDAL MusicInfoDAL{get;set;}
 	
+		IMusicLogInfoDAL MusicLogInfoDAL{get;set;}
+	
 		IProfilesInfoDAL ProfilesInfoDAL{get;set;}
 	
 		IStoreInfoDAL StoreInfoDAL{get;set;}

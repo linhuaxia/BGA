@@ -1,0 +1,119 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using Lin.BGA.Model;
+@using Lin.BGA.IBLL;
+@using Lin.BGA.BLLFactory;
+
+@model IPagedList<MusicLogInfo>
+
+@{
+    ViewBag.Title = "播放日志";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <script type="text/javascript">
+        function BtnDelete_Click(ItemID) {
+            $.post("@Url.Action("Delete")", { ID: ItemID }, function (data) {
+                alert(data.ErrorMsg);
+                if (data.ErrorCode == 0) {
+                    location.reload();
+                }
+            });
+        }
+        function BtnSearch_Click() {
+            var URL = "@Url.Action("index")";
+            URL += "?Name=" + $("#TxtName").val();
+            URL += "&DateBegin=" + $("#TxtDateBegin").val();
+            URL += "&DateEnd=" + $("#TxtDateEnd").val();
+            location.href = URL;
+        }
+    </script>
+}
+
+
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table1">
+        <tr>
+            <td colspan="6" style="height: 30px" class="td1_1">
+                @ViewBag.Title
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                日期从
+            </td>
+            <td class="td1_3">
+                @Html.TextBox("TxtDateBegin")
+            </td>
+            <td class="td1_2">
+                到
+            </td>
+            <td class="td1_3">
+                @Html.TextBox("TxtDateEnd")
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                店铺名称
+            </td>
+            <td class="td1_3">
+                @Html.TextBox("TxtName")
+            </td>
+            <td class="td1_2" colspan="2">
+               <input type="button" onclick="BtnSearch_Click()" class="btn btn-default" value="搜索" />
+            </td>
+        </tr>
+    </table>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            店铺
+        </th>
+        <th>
+            播放分类
+        </th>
+        <th>
+            播放音乐
+        </th>
+        <th>
+            播放时间
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td style="text-align:left;">
+                @item.StoreInfo.Name
+            </td>
+            <td>
+                @item.CategoryName
+            </td>
+            <td>
+                @item.MusicName
+            </td>
+            <td>
+               @item.CreateDate
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="PageCotainer">
+    <p class="PageInfoMain">共 @Model.PageCount 页 | @Model.TotalItemCount 条数据</p>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    Name = ViewBag.Name,
+    TypeID = ViewBag.DdlTypeID
+}))
+</div>
+
+

@@ -40,6 +40,14 @@ namespace Lin.BGA.BLLFactory
 
         }
 		
+	    public static IMusicLogInfoService CreateMusicLogInfoService()
+        {
+
+			string fullClassName = AssemblyNameSpace + ".MusicLogInfoService";
+			return CreateInstance(fullClassName) as IMusicLogInfoService;
+
+        }
+		
 	    public static IProfilesInfoService CreateProfilesInfoService()
         {
 

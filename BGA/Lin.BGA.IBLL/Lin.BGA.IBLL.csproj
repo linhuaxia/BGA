@@ -53,6 +53,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IBLL.tt</DependentUpon>
     </Compile>
+    <Compile Include="IMusicLogInfoService.cs" />
     <Compile Include="IProfilesInfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
