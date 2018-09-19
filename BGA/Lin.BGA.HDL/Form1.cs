@@ -24,10 +24,9 @@ namespace Lin.BGA.HDL
         }
         private static IEnumerable<CategoryInfo> listCategory = null;
 
-        private  void  FormMain_Load(object sender, EventArgs e)
+        private  void FormMain_Load(object sender, EventArgs e)
         {
-            this.Text = "海底捞门店通知音乐播放器   Version:"+ Application.ProductVersion.ToString();
-            LabUpdateStatus.Text = string.Empty;
+            toolStripStatusLabel2.Text = " Version:" + Application.ProductVersion.ToString();
             LoginCheck();
 
             LoadUI();
@@ -48,23 +47,23 @@ namespace Lin.BGA.HDL
         /// <summary>
         ///获取服务器最新音乐数据，并显示列表及音乐文件
         /// </summary>
-        private  void LoadUI()
+        private void LoadUI()
         {
             var categoryClient = new APIClient.CategoryClient();
             listCategory = categoryClient.GetList();
             InitDataAsync();
 
 
-            while (panelMusic.Controls.Count>0)
+            while (panelMusic.Controls.Count > 0)
             {
                 panelMusic.Controls.RemoveAt(0);
             }
             int Flag = 0;
             foreach (var itemCategory in listCategory)
             {
-                Control groupBox= panelMusic.Controls.Find("GroupBox" + itemCategory.ID, false).FirstOrDefault();
+                Control groupBox = panelMusic.Controls.Find("GroupBox" + itemCategory.ID, false).FirstOrDefault();
                 ListBox listbox;
-                if (null== groupBox)
+                if (null == groupBox)
                 {
                     groupBox = new GroupBox();
                     panelMusic.Controls.Add(groupBox);
@@ -106,17 +105,17 @@ namespace Lin.BGA.HDL
                 CurrentControl.SelectedIndex = -1;
                 return;
             }
-           // MessageBox.Show(CurrentControl.SelectedItem.ToString()); //执行双击事件
+            // MessageBox.Show(CurrentControl.SelectedItem.ToString()); //执行双击事件
 
             var infoMusic = listCategory.SelectMany(c => c.MusicInfo).FirstOrDefault(a => a.Name == CurrentControl.SelectedItem.ToString());
-            if (null==infoMusic)
+            if (null == infoMusic)
             {
                 MessageBox.Show("音频文件已下架，请重新打开app"); //
                 return;
             }
-            axWindowsMediaPlayer1.URL= GetCurrentMusicDirectory() + 
-                infoMusic.CategoryInfo.Name + 
-                "\\" + 
+            axWindowsMediaPlayer1.URL = GetCurrentMusicDirectory() +
+                infoMusic.CategoryInfo.Name +
+                "\\" +
                 infoMusic.SRC.Substring(infoMusic.SRC.LastIndexOf("/") + 1);
             axWindowsMediaPlayer1.settings.playCount = infoMusic.PlayTime;
             axWindowsMediaPlayer1.Ctlcontrols.play();
@@ -131,17 +130,6 @@ namespace Lin.BGA.HDL
             new MusicLogClient().CreateToClient(infoMusicLog);
         }
 
-        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-            System.UInt32 Value = (System.UInt32)((double)0xffff * (double)hScrollBar1.Value / (double)(hScrollBar1.Maximum - hScrollBar1.Minimum));//先把trackbar的value值映射到0x0000～0xFFFF范围
-            //限制value的取值范围
-
-            if (Value < 0) Value = 0;
-
-            if (Value > 0xffff) Value = 0xffff;
-
-
-        }
 
         private string GetCurrentMusicDirectory()
         {
@@ -150,33 +138,64 @@ namespace Lin.BGA.HDL
         /// <summary>
         /// 离线音乐文件
         /// </summary>
-        private void InitDataAsync()
+        private  void InitDataAsync()
         {
-            string BaseDir = GetCurrentMusicDirectory();
-            foreach (var itemCategory in listCategory)
-            {
-                if (!Directory.Exists(BaseDir+ itemCategory.Name))
+                string BaseDir = GetCurrentMusicDirectory();
+                foreach (var itemCategory in listCategory)
                 {
-                    Directory.CreateDirectory(BaseDir + itemCategory.Name);
-                }
-                foreach (var itemMusic in itemCategory.MusicInfo)
-                {
-                    string FileFullName = BaseDir
-                        + itemCategory.Name
-                        + "\\"
-                        + itemMusic.SRC.Substring(itemMusic.SRC.LastIndexOf("/")+1);
-                    if (!File.Exists(FileFullName))
+                    if (!Directory.Exists(BaseDir + itemCategory.Name))
                     {
-                        var HttpFileName = APIClient.APIHellper.ConstConfig.APIURL.Replace("/api", "") + itemMusic.SRC;
-                        new APIHellper().DownloadFileAsync(HttpFileName,
-                            FileFullName,
-                            (object sender, System.Net.DownloadProgressChangedEventArgs e) => { },
-                            (object sender, AsyncCompletedEventArgs e) => { });
+                        Directory.CreateDirectory(BaseDir + itemCategory.Name);
                     }
+                    //foreach (var itemMusic in itemCategory.MusicInfo)
+                    //{
+                    //    string FileFullName = BaseDir
+                    //        + itemCategory.Name
+                    //        + "\\"
+                    //        + itemMusic.SRC.Substring(itemMusic.SRC.LastIndexOf("/") + 1);
+                    //    if (!File.Exists(FileFullName))
+                    //    {
+                    //        var HttpFileName = APIClient.APIHellper.ConstConfig.APIURL.Replace("/api", "") + itemMusic.SRC;
+                    //        new APIHellper().DownloadFileAsync(HttpFileName,
+                    //            FileFullName,
+                    //            (object sender, System.Net.DownloadProgressChangedEventArgs e) => { },
+                    //            (object sender, AsyncCompletedEventArgs e) => { });
+                    //    }
+                    //}
+
                 }
-               
+            var listMusic = listCategory.SelectMany(a => a.MusicInfo).ToList();
+            Task.Run(() => {
+                DownLoadMusic(listMusic, 0);
+            });
+
+        }
+
+        private void DownLoadMusic(List<MusicInfo> listMusic,int Index)
+        {
+            if (Index==listMusic.Count())
+            {
+                return;
+            }
+            var itemMusic = listMusic[Index];
+            string BaseDir = GetCurrentMusicDirectory();
+            string FileFullName = BaseDir
+                            + itemMusic.CategoryInfo.Name
+                            + "\\"
+                            + itemMusic.SRC.Substring(itemMusic.SRC.LastIndexOf("/") + 1);
+            if (!File.Exists(FileFullName))
+            {
+                var HttpFileName = APIClient.APIHellper.ConstConfig.APIURL.Replace("/api", "") + itemMusic.SRC;
+                new APIHellper().DownloadFileAsync(HttpFileName,
+                    FileFullName,
+                    (object sender, System.Net.DownloadProgressChangedEventArgs e) => { toolStripStatusLabel1.Text = "正在下载音乐文件:" + itemMusic.Name; },
+                    (object sender, AsyncCompletedEventArgs e) => {
+                        toolStripStatusLabel1.Text = string.Empty;
+                        DownLoadMusic(listMusic, Index + 1);
+                    });
             }
         }
+
         private static int TimeTickTimes = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -190,26 +209,26 @@ namespace Lin.BGA.HDL
             if ((EnableUpdateTimeInterval / timer1.Interval) <= TimeTickTimes)
             {
                 TimeTickTimes = 0;
-                if ( nowDate.Hour>= EnableUpdateTimeBegin ||  nowDate.Hour<= EnableUpdateTimeEnd)
+                if (nowDate.Hour >= EnableUpdateTimeBegin || nowDate.Hour <= EnableUpdateTimeEnd)
                 {
-                    LabUpdateStatus.Text = DateTime.Now.ToString() + ":正在通讯，检查更新中。。。";
+                    toolStripStatusLabel2.Text = DateTime.Now.ToString() + ":正在通讯，检查更新中。。。";
                     LoadUI();
                     AppVerionCheck();
-                    //new MusicLogClient().CreateToServer();
-                    LabUpdateStatus.Text = string.Empty;
+                    new MusicLogClient().CreateToServer();
+                    toolStripStatusLabel2.Text = " Version:" + Application.ProductVersion.ToString();
 
                 }
             }
-            
+
         }
         private void AppVerionCheck()
         {
             var infoLastAppVersion = new AppVersionClient().GetLast();
-            if (infoLastAppVersion.Version!= Application.ProductVersion.ToString())
+            if (infoLastAppVersion.Version != Application.ProductVersion.ToString())
             {
                 timer1.Stop();
                 var UpdateResult = MessageBox.Show("系统发布了新版本，是否马上更新？", "重要更新，请及时处理", MessageBoxButtons.YesNo);
-                if (UpdateResult==DialogResult.Yes)
+                if (UpdateResult == DialogResult.Yes)
                 {
                     string aFilePath = Environment.CurrentDirectory + "\\Lin.BGA.Update.exe";
                     System.Diagnostics.Process.Start(aFilePath);
@@ -225,10 +244,15 @@ namespace Lin.BGA.HDL
 
         private void axWindowsMediaPlayer1_StatusChange(object sender, EventArgs e)
         {
-            if ("已停止"== axWindowsMediaPlayer1.status)
+            if ("已停止" == axWindowsMediaPlayer1.status)
             {
                 labelStatus.Text = "现时播放音乐：无";
             }
+        }
+
+        private void BtnUpdateCheck_Click(object sender, EventArgs e)
+        {
+            LoadUI();
         }
     }
 }

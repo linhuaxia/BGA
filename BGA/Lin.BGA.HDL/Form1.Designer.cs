@@ -34,14 +34,15 @@
             this.labelStatus = new System.Windows.Forms.Label();
             this.groupBoxMusic = new System.Windows.Forms.GroupBox();
             this.panelMusic = new System.Windows.Forms.Panel();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
-            this.groupBoxVolumn = new System.Windows.Forms.GroupBox();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.LabUpdateStatus = new System.Windows.Forms.Label();
+            this.BtnUpdateCheck = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBoxMusic.SuspendLayout();
-            this.groupBoxVolumn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelStoreName
@@ -83,28 +84,6 @@
             this.panelMusic.Size = new System.Drawing.Size(954, 441);
             this.panelMusic.TabIndex = 0;
             // 
-            // hScrollBar1
-            // 
-            this.hScrollBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.hScrollBar1.Location = new System.Drawing.Point(3, 31);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(978, 23);
-            this.hScrollBar1.TabIndex = 2;
-            this.hScrollBar1.Value = 50;
-            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
-            // 
-            // groupBoxVolumn
-            // 
-            this.groupBoxVolumn.Controls.Add(this.hScrollBar1);
-            this.groupBoxVolumn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBoxVolumn.Location = new System.Drawing.Point(0, 604);
-            this.groupBoxVolumn.Name = "groupBoxVolumn";
-            this.groupBoxVolumn.Size = new System.Drawing.Size(984, 57);
-            this.groupBoxVolumn.TabIndex = 3;
-            this.groupBoxVolumn.TabStop = false;
-            this.groupBoxVolumn.Text = "音量大小";
-            this.groupBoxVolumn.Visible = false;
-            // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
@@ -121,14 +100,38 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // LabUpdateStatus
+            // BtnUpdateCheck
             // 
-            this.LabUpdateStatus.AutoSize = true;
-            this.LabUpdateStatus.Location = new System.Drawing.Point(3, 0);
-            this.LabUpdateStatus.Name = "LabUpdateStatus";
-            this.LabUpdateStatus.Size = new System.Drawing.Size(95, 12);
-            this.LabUpdateStatus.TabIndex = 6;
-            this.LabUpdateStatus.Text = "LabUpdateStatus";
+            this.BtnUpdateCheck.Location = new System.Drawing.Point(894, 0);
+            this.BtnUpdateCheck.Name = "BtnUpdateCheck";
+            this.BtnUpdateCheck.Size = new System.Drawing.Size(90, 23);
+            this.BtnUpdateCheck.TabIndex = 8;
+            this.BtnUpdateCheck.Text = "检查音乐更新";
+            this.BtnUpdateCheck.UseVisualStyleBackColor = true;
+            this.BtnUpdateCheck.Click += new System.EventHandler(this.BtnUpdateCheck_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(80, 17);
+            this.toolStripStatusLabel1.Text = "目前更新事项";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel2.Text = "程序版本";
             // 
             // FormMain
             // 
@@ -136,12 +139,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.LabUpdateStatus);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.BtnUpdateCheck);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.groupBoxVolumn);
             this.Controls.Add(this.groupBoxMusic);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelStoreName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -149,8 +153,9 @@
             this.Text = "海底捞门店通知音乐播放器";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.groupBoxMusic.ResumeLayout(false);
-            this.groupBoxVolumn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,12 +166,13 @@
         private System.Windows.Forms.Label labelStoreName;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.GroupBox groupBoxMusic;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
-        private System.Windows.Forms.GroupBox groupBoxVolumn;
         private System.Windows.Forms.Panel panelMusic;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label LabUpdateStatus;
+        private System.Windows.Forms.Button BtnUpdateCheck;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 
