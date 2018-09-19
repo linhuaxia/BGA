@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdate));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelCurrent = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelUpdate = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
@@ -76,11 +75,6 @@
             this.labelUpdate.Size = new System.Drawing.Size(0, 12);
             this.labelUpdate.TabIndex = 0;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // BtnUpdate
             // 
             this.BtnUpdate.Location = new System.Drawing.Point(208, 497);
@@ -107,6 +101,7 @@
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUpdate";
             this.Text = "程序更新";
             this.Load += new System.EventHandler(this.FormUpdate_Load);
@@ -124,7 +119,6 @@
         private System.Windows.Forms.Label labelCurrent;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label labelUpdate;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.ProgressBar progressBar1;
     }

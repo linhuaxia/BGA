@@ -26,10 +26,9 @@ namespace Lin.BGA.HDL
 
         private  void  FormMain_Load(object sender, EventArgs e)
         {
+            this.Text = "海底捞门店通知音乐播放器   Version:"+ Application.ProductVersion.ToString();
+            LabUpdateStatus.Text = string.Empty;
             LoginCheck();
-            var categoryClient = new APIClient.CategoryClient();
-            listCategory = categoryClient.GetList();
-            InitDataAsync();
 
             LoadUI();
 
@@ -46,16 +45,16 @@ namespace Lin.BGA.HDL
             labelStoreName.Text = "门店名称:" + new StoreHelper().GetLoginInfo().Name;
         }
 
+        /// <summary>
+        ///获取服务器最新音乐数据，并显示列表及音乐文件
+        /// </summary>
         private  void LoadUI()
         {
-            //var listEnableGroupBoxName = listCategory.Select(c => "GroupBox" + c.ID);
-            //foreach (Control item in panelMusic.Controls)
-            //{
-            //    if (!listEnableGroupBoxName.Any(a => a == item.Name))
-            //    {
-            //        panelMusic.Controls.Remove(item);
-            //    }
-            //}
+            var categoryClient = new APIClient.CategoryClient();
+            listCategory = categoryClient.GetList();
+            InitDataAsync();
+
+
             while (panelMusic.Controls.Count>0)
             {
                 panelMusic.Controls.RemoveAt(0);
@@ -140,6 +139,9 @@ namespace Lin.BGA.HDL
         {
             return System.IO.Directory.GetCurrentDirectory().Replace("/", "\\") + "\\MusicOffLine\\"; ;
         }
+        /// <summary>
+        /// 离线音乐文件
+        /// </summary>
         private void InitDataAsync()
         {
             string BaseDir = GetCurrentMusicDirectory();
@@ -180,12 +182,35 @@ namespace Lin.BGA.HDL
             if ((EnableUpdateTimeInterval / timer1.Interval) <= TimeTickTimes)
             {
                 TimeTickTimes = 0;
-                if (EnableUpdateTimeBegin >= nowDate.Hour || EnableUpdateTimeEnd <= nowDate.Hour)
+                if ( nowDate.Hour>= EnableUpdateTimeBegin ||  nowDate.Hour<= EnableUpdateTimeEnd)
                 {
+                    LabUpdateStatus.Text = DateTime.Now.ToString() + ":正在通讯，检查更新中。。。";
                     LoadUI();
+                    AppVerionCheck();
+                    LabUpdateStatus.Text = string.Empty;
                 }
             }
             
+        }
+        private void AppVerionCheck()
+        {
+            var infoLastAppVersion = new AppVersionClient().GetLast();
+            if (infoLastAppVersion.Version!= Application.ProductVersion.ToString())
+            {
+                timer1.Stop();
+                var UpdateResult = MessageBox.Show("系统发布了新版本，是否马上更新？", "重要更新，请及时处理", MessageBoxButtons.YesNo);
+                if (UpdateResult==DialogResult.Yes)
+                {
+                    string aFilePath = Environment.CurrentDirectory + "\\Lin.BGA.Update.exe";
+                    System.Diagnostics.Process.Start(aFilePath);
+                    Application.Exit();
+                    return;
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
         }
 
         private void axWindowsMediaPlayer1_StatusChange(object sender, EventArgs e)

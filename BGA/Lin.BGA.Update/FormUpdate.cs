@@ -22,10 +22,7 @@ namespace Lin.BGA.Update
         AppVersionClientInfo infoAppVersionClientNew;
         private void FormUpdate_Load(object sender, EventArgs e)
         {
-            //string aFilePath = Environment.SystemDirectory + "\\Notepad.exe";
-            //Process.Start(aFilePath);
-            //Application.Exit();
-            //return;
+            
 
             FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(Environment.CurrentDirectory + "\\海底捞门店通知音乐播放器.exe");
             labelCurrent.Text = myFileVersionInfo.FileVersion;
@@ -38,10 +35,6 @@ namespace Lin.BGA.Update
 
 
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            //MessageBox.Show("我要出来了");
-        }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
@@ -58,6 +51,8 @@ namespace Lin.BGA.Update
             },
                 (object senderCompleted, AsyncCompletedEventArgs eCompleted) => {
                     UnZipHelper.unZipFile(SaveFullName, Environment.CurrentDirectory);
+                    MessageBox.Show("更新完成，请重新启动程序");
+                    Application.Exit();
                 }
             );
         }

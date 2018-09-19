@@ -38,6 +38,7 @@
             this.groupBoxVolumn = new System.Windows.Forms.GroupBox();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.LabUpdateStatus = new System.Windows.Forms.Label();
             this.groupBoxMusic.SuspendLayout();
             this.groupBoxVolumn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -120,12 +121,22 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // LabUpdateStatus
+            // 
+            this.LabUpdateStatus.AutoSize = true;
+            this.LabUpdateStatus.Location = new System.Drawing.Point(3, 0);
+            this.LabUpdateStatus.Name = "LabUpdateStatus";
+            this.LabUpdateStatus.Size = new System.Drawing.Size(95, 12);
+            this.LabUpdateStatus.TabIndex = 6;
+            this.LabUpdateStatus.Text = "LabUpdateStatus";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.LabUpdateStatus);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.groupBoxVolumn);
             this.Controls.Add(this.groupBoxMusic);
@@ -155,6 +166,7 @@
         private System.Windows.Forms.Panel panelMusic;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label LabUpdateStatus;
     }
 }
 

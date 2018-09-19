@@ -22,7 +22,7 @@ namespace Lin.BGA.Update
             System.Net.DownloadProgressChangedEventHandler client_DownloadProgressChanged,
             AsyncCompletedEventHandler client_DownloadFileCompleted)
         {
-            SRC = APIHellper.ConstConfig.APIURL + SRC;
+            SRC = APIHellper.ConstConfig.APIURL.Replace("/api","") + SRC;
 
             APIHellper apiHelper = new APIHellper();
             apiHelper.DownloadFileAsync(SRC, SaveFileFullName, client_DownloadProgressChanged, client_DownloadFileCompleted);
