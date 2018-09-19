@@ -10,8 +10,8 @@ D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\EntityFramework.xml
 D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
 D:\Develop\BGA\BGA\Lin.BGA.IDAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.csprojResolveAssemblyReference.cache
 D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.csproj.CopyComplete
 D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.dll
 D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.pdb
+D:\Develop\BGA\BGA\Lin.BGA.IDAL\obj\Debug\Lin.BGA.IDAL.csprojAssemblyReference.cache

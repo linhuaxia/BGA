@@ -1,0 +1,83 @@
+﻿@model Lin.BGA.Model.AppVersionInfo
+
+@{
+    ViewBag.Title = "新建";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+<script src="~/Scripts/jquery.form.min.js"></script>
+    <script type="text/javascript">
+        function OnSuccess(data) {
+            alert(data.ErrorMsg);
+            if (data.ErrorCode != 0) {
+                return;
+            }
+            parent.location.reload();
+
+        }
+        function OnBegin() {
+
+        }
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#uploadForm').on('submit', function (e) {
+                e.preventDefault(); // <-- important
+                $(this).ajaxSubmit({
+                    beforeSend: function () {
+                        return OnBegin();
+                    },
+                    uploadProgress: function (event, position, total, percentComplete) {
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        OnSuccess(data);
+                    }
+                });
+                return false;
+            });
+
+        });
+
+
+    </script>
+}
+
+@using (Html.BeginForm("Create", "AppVersion", FormMethod.Post, new { id = "uploadForm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table1">
+        <tr>
+            <td class="td1_2">
+                选择文件
+            </td>
+            <td class="td1_3">
+                <input type="file" name="FileMain" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                版本号
+            </td>
+            <td class="td1_3">
+                @Html.EditorFor(model => model.Version, new { htmlAttributes = new { @class = "form-control",placeholder="如1.0.0.0" } })
+                <div>版本跟最新上传的不同则会更新，如上传的主程序版本跟这个界面上提交的zip文件中的主程序版本不一致，客户端会死循环更新</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2">
+                更新日志
+            </td>
+            <td class="td1_3">
+                @Html.TextAreaFor(model => model.Detail, new { @class = "form-control", rows = "10" })
+            </td>
+        </tr>
+        <tr>
+            <td class="td1_2" colspan="2">
+                <input type="submit" value="提交" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,107 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using Lin.BGA.Model;
+@using Lin.BGA.IBLL;
+@using Lin.BGA.BLLFactory;
+
+@model IPagedList<AppVersionInfo>
+
+@{
+    ViewBag.Title = "版本控制";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <script type="text/javascript">
+        function BtnDelete_Click(ItemID) {
+            $.post("@Url.Action("Delete")", { ID: ItemID }, function (data) {
+                alert(data.ErrorMsg);
+                if (data.ErrorCode == 0) {
+                    location.reload();
+                }
+            });
+        }
+
+    </script>
+}
+
+
+<p class="pAdd">
+    <a href="javascript:Layer('@Url.Action("Create")')" class="btn btn-default">
+        添加
+    </a>
+</p>
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table1">
+    <tr>
+        <td colspan="6" style="height: 30px" class="td1_1">
+            @ViewBag.Title
+            (注意此功能仅供开发人员上传app客户端新版本使用，请不要随意操作)
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            版本号
+        </th>
+        <th>
+            日志
+        </th>
+        <th>
+            上线时间
+        </th>
+        <th>
+            路径
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td style="text-align:left;">
+                @item.Version
+            </td>
+            <td>
+                @Html.Raw(item.Detail.Replace("\n", "<br />"))
+            </td>
+            <td>
+                @item.CreateDate
+            </td>
+            <td>
+                <a href="@item.SRC">
+                    @item.SRC
+                </a>
+            </td>
+            <td>
+               
+                <a href="javascript:BtnDelete_Click(@item.ID)" title="删除"
+                   onclick="return confirm('确定要删除数据吗？')">
+                    删除
+                </a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="PageCotainer">
+    <p class="PageInfoMain">共 @Model.PageCount 页 | @Model.TotalItemCount 条数据</p>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    Name = ViewBag.Name,
+    TypeID = ViewBag.DdlTypeID
+}))
+</div>
+
+

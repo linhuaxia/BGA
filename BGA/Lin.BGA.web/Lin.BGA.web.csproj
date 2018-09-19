@@ -164,6 +164,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\API\APIAreaRegistration.cs" />
+    <Compile Include="Areas\API\Controllers\AppVersionController.cs" />
     <Compile Include="Areas\API\Controllers\ProfilesController.cs" />
     <Compile Include="Areas\API\Controllers\StoreController.cs" />
     <Compile Include="Areas\API\Controllers\CategoryController.cs" />
@@ -172,6 +173,7 @@
     </Compile>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseMPController.cs" />
+    <Compile Include="Controllers\AppVersionController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\Common.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1088,6 +1090,9 @@
     <Content Include="Views\Store\Create.cshtml" />
     <Content Include="Views\Store\Edit.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\AppVersion\Create.cshtml" />
+    <Content Include="Views\AppVersion\Edit.cshtml" />
+    <Content Include="Views\AppVersion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

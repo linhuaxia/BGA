@@ -15,8 +15,8 @@ D:\Develop\BGA\BGA\Lin.BGA.DAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\Develop\BGA\BGA\Lin.BGA.DAL\bin\Debug\Newtonsoft.Json.xml
 D:\Develop\BGA\BGA\Lin.BGA.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
 D:\Develop\BGA\BGA\Lin.BGA.DAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-D:\Develop\BGA\BGA\Lin.BGA.DAL\obj\Debug\Lin.BGA.DAL.csprojResolveAssemblyReference.cache
 D:\Develop\BGA\BGA\Lin.BGA.DAL\obj\Debug\Lin.BGA.DAL.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Lin.BGA.DAL\obj\Debug\Lin.BGA.DAL.csproj.CopyComplete
 D:\Develop\BGA\BGA\Lin.BGA.DAL\obj\Debug\Lin.BGA.DAL.dll
 D:\Develop\BGA\BGA\Lin.BGA.DAL\obj\Debug\Lin.BGA.DAL.pdb
+D:\Develop\BGA\BGA\Lin.BGA.DAL\obj\Debug\Lin.BGA.DAL.csprojAssemblyReference.cache

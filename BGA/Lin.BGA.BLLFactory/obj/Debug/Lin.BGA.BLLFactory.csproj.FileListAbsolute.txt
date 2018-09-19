@@ -25,8 +25,8 @@ D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.IDAL.pdb
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.IDAL.dll.config
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\zh-Hans\EntityFramework.resources.dll
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csprojResolveAssemblyReference.cache
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csproj.CopyComplete
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.dll
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.pdb
+D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csprojAssemblyReference.cache

@@ -16,8 +16,8 @@ D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\EntityFramework.xml
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\EntityFramework.SqlServer.xml
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\zh-Hans\EntityFramework.resources.dll
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csprojResolveAssemblyReference.cache
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csproj.CopyComplete
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.dll
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.pdb
+D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csprojAssemblyReference.cache
