@@ -26,7 +26,7 @@ namespace Lin.BGA.web.Areas.API.Controllers
             var result = CategoryBLL.GetList(a => a.Enable).OrderBy(a => a.SortID).ThenBy(a => a.ID).Select(a => new {
                 a.ID,
                 a.Name,
-                MusicInfo = a.MusicInfo.Where(m => m.Enable).OrderByDescending(m => m.SortID).ThenBy(m => m.ID).Select(m => new {
+                MusicInfo = a.MusicInfo.Where(m => m.Enable).OrderBy(m => m.SortID).ThenBy(m => m.ID).Select(m => new {
                     m.ID,
                     m.Name,
                     m.PlayTime,
