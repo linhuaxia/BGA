@@ -224,7 +224,7 @@ namespace Lin.BGA.HDL
                 var UpdateResult = MessageBox.Show("系统发布了新版本，是否马上更新？", "重要更新，请及时处理", MessageBoxButtons.YesNo);
                 if (UpdateResult == DialogResult.Yes)
                 {
-                    string aFilePath = Environment.CurrentDirectory + "\\Lin.BGA.Update.exe";
+                    string aFilePath = Environment.CurrentDirectory + "\\Update\\Lin.BGA.Update.exe";
                     System.Diagnostics.Process.Start(aFilePath);
                     Application.Exit();
                     return;

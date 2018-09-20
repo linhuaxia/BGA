@@ -12,3 +12,23 @@
 	|											|
 	|technology Provide by联方信息tech			|
 	---------------------------------------------
+
+1.		zh-Hans//不要动这个目录
+2.		Update//不要动这个目录
+2.1.		ICSharpCode.SharpZipLib.dll
+2.2.		Lin.BGA.Update.exe
+2.3			Lin.BGA.Update.exe.config
+2.4			Newtonsoft.Json.dll
+3.		AxInterop.WMPLib.dll//不要动这个目录
+4.		EntityFramework.dll//不要动这个目录
+5.		Interop.WMPLib.dll//不要动这个目录
+6.		KinnSoft.Excel.OfficeOpenXml.dll//不要动这个目录
+7.		Lin.BGA.APIClient.dll
+8.		Lin.BGA.Model.dll
+9.		Newtonsoft.Json.dll//不要动这个目录
+10.		ThoughtWorks.QRCode.dll
+11.		Tool.dll
+12.		海底捞门店通知音乐播放器.exe
+13.		海底捞门店通知音乐播放器.exe.config
+14.		海底捞门店通知音乐播放器.exe.manifest
+
