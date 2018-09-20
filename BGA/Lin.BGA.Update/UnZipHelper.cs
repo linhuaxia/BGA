@@ -106,7 +106,7 @@ namespace Lin.BGA.Update
                 }
                 s.Close();
 
-                return rootFile;
+                return string.Empty;
             }
             catch (Exception ex)
             {

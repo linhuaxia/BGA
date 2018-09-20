@@ -57,6 +57,9 @@
             是否可用
         </th>
         <th>
+            MD5校验码
+        </th>
+        <th>
             操作
         </th>
     </tr>
@@ -78,6 +81,9 @@
         </td>
         <td>
             @SysEnum.EnableStatus.GetName(item.Enable)
+        </td>
+        <td>
+            @item.MD5
         </td>
         <td>
             <a href="javascript:Layer('@Url.Action("Edit", new { id = item.ID })')" title="编辑">

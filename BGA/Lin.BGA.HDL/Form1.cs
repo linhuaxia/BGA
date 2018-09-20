@@ -147,21 +147,6 @@ namespace Lin.BGA.HDL
                     {
                         Directory.CreateDirectory(BaseDir + itemCategory.Name);
                     }
-                    //foreach (var itemMusic in itemCategory.MusicInfo)
-                    //{
-                    //    string FileFullName = BaseDir
-                    //        + itemCategory.Name
-                    //        + "\\"
-                    //        + itemMusic.SRC.Substring(itemMusic.SRC.LastIndexOf("/") + 1);
-                    //    if (!File.Exists(FileFullName))
-                    //    {
-                    //        var HttpFileName = APIClient.APIHellper.ConstConfig.APIURL.Replace("/api", "") + itemMusic.SRC;
-                    //        new APIHellper().DownloadFileAsync(HttpFileName,
-                    //            FileFullName,
-                    //            (object sender, System.Net.DownloadProgressChangedEventArgs e) => { },
-                    //            (object sender, AsyncCompletedEventArgs e) => { });
-                    //    }
-                    //}
 
                 }
             var listMusic = listCategory.SelectMany(a => a.MusicInfo).ToList();
@@ -183,8 +168,13 @@ namespace Lin.BGA.HDL
                             + itemMusic.CategoryInfo.Name
                             + "\\"
                             + itemMusic.SRC.Substring(itemMusic.SRC.LastIndexOf("/") + 1);
-            if (!File.Exists(FileFullName))
+            string MD5Local = Tool.Md5Helper.GetMD5HashFromFile(FileFullName);
+            if (!File.Exists(FileFullName)||MD5Local!=itemMusic.MD5)
             {
+                if (File.Exists(FileFullName))
+                {
+                    File.Delete(FileFullName);
+                }
                 var HttpFileName = APIClient.APIHellper.ConstConfig.APIURL.Replace("/api", "") + itemMusic.SRC;
                 new APIHellper().DownloadFileAsync(HttpFileName,
                     FileFullName,
@@ -193,6 +183,10 @@ namespace Lin.BGA.HDL
                         toolStripStatusLabel1.Text = string.Empty;
                         DownLoadMusic(listMusic, Index + 1);
                     });
+            }
+            else
+            {
+                DownLoadMusic(listMusic, Index + 1);
             }
         }
 

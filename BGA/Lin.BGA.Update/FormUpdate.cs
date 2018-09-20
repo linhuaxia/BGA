@@ -24,7 +24,7 @@ namespace Lin.BGA.Update
         {
             
 
-            FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(Environment.CurrentDirectory + "\\海底捞门店通知音乐播放器.exe");
+            FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(Environment.CurrentDirectory.Replace("Update","") + "海底捞门店通知音乐播放器.exe");
             labelCurrent.Text = myFileVersionInfo.FileVersion;
 
              infoAppVersionClientNew = new UpdateHelper().GetLast();
@@ -50,16 +50,20 @@ namespace Lin.BGA.Update
                 progressBar1.Value = eProcess.ProgressPercentage;
             },
                 (object senderCompleted, AsyncCompletedEventArgs eCompleted) => {
-                    UnZipHelper.unZipFile(SaveFullName, Environment.CurrentDirectory);
-                    MessageBox.Show("更新完成，请重新启动程序");
+                  string UnZipResult=  UnZipHelper.unZipFile(SaveFullName, Environment.CurrentDirectory.Replace("Update", ""));
+                    if (!string.IsNullOrEmpty(UnZipResult))
+                    {
+                        MessageBox.Show("解压更新文件出错，手动解压"+ SaveFullName+"，覆盖现有文件，然后重新启动程序;\n错误参考："+UnZipResult);
+                    }
+                    else
+                    {
+                        MessageBox.Show("更新完成，请重新启动程序");
+                    }
+                    
                     Application.Exit();
                 }
             );
         }
 
-        private void UnZip()
-        {
-            
-        }
     }
 }

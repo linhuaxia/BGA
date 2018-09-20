@@ -21,6 +21,7 @@ namespace Lin.BGA.Model
         public bool Enable { get; set; }
         public string SRC { get; set; }
         public int PlayTime { get; set; }
+        public string MD5 { get; set; }
     
         public virtual CategoryInfo CategoryInfo { get; set; }
     }

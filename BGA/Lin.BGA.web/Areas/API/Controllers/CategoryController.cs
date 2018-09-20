@@ -30,7 +30,8 @@ namespace Lin.BGA.web.Areas.API.Controllers
                     m.ID,
                     m.Name,
                     m.PlayTime,
-                    m.SRC
+                    m.SRC,
+                    m.MD5
                 })
             });
             return Json(new APIJson(0, "", result),JsonRequestBehavior.AllowGet);

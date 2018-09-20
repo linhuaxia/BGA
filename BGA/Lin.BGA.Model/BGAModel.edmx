@@ -35,6 +35,7 @@
           <Property Name="Enable" Type="bit" Nullable="false" />
           <Property Name="SRC" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="PlayTime" Type="int" Nullable="false" />
+          <Property Name="MD5" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="MusicLogInfo">
           <Key>
@@ -156,6 +157,7 @@
           <Property Name="SRC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="CategoryInfo" Relationship="Self.FK_MusicInfo_CategoryInfo" FromRole="MusicInfo" ToRole="CategoryInfo" />
           <Property Name="PlayTime" Type="Int32" Nullable="false" />
+          <Property Name="MD5" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="StoreInfo">
           <Key>
@@ -273,6 +275,7 @@
           <EntitySetMapping Name="MusicInfo">
             <EntityTypeMapping TypeName="BGAModel.MusicInfo">
               <MappingFragment StoreEntitySet="MusicInfo">
+                <ScalarProperty Name="MD5" ColumnName="MD5" />
                 <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />

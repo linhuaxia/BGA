@@ -35,7 +35,7 @@ namespace Lin.BGA.web.Controllers
                 ViewBag.TxtName = Name;
             }
 
-            list = list.OrderBy(p => p.SortID).ThenBy(a=>a.ID);
+            list = list.OrderBy(p => p.CategoryID).ThenBy(a=>a.SortID).ThenBy(a=>a.ID);
             return list;
         }
 
@@ -65,7 +65,7 @@ namespace Lin.BGA.web.Controllers
 
             FileMain.SaveAs(Server.MapPath(info.SRC));
 
-
+            info.MD5= Md5Helper.GetMD5HashFromFile(Server.MapPath(info.SRC));
 
             if (MusicBLL.Create(info).ID > 0)
             {
@@ -88,6 +88,23 @@ namespace Lin.BGA.web.Controllers
             return View(info);
         }
 
+        public ActionResult UpdateMD5()
+        {
+            var sresult = string.Empty;
+            var list = MusicBLL.GetList(a => true);
+            foreach (var item in list)
+            {
+                var FileFullName = Server.MapPath(item.SRC);
+                if (System.IO.File.Exists(FileFullName))
+                {
+                    item.MD5= Md5Helper.GetMD5HashFromFile(FileFullName);
+                   bool result= MusicBLL.Edit(item);
+                    sresult +=FileFullName+ "|MD5="+item.MD5+"|Result="+result;
+                }
+            }
+            return Content(sresult);
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(MusicInfo info)
@@ -107,6 +124,7 @@ namespace Lin.BGA.web.Controllers
                 info.SRC = "/Content/File/Music/" + Guid.NewGuid().ToString() + FileMain.FileName.Substring(FileMain.FileName.LastIndexOf("."));
                 FileMain.SaveAs(Server.MapPath(info.SRC));
                 infoExist.SRC = info.SRC;
+                infoExist.MD5 = Md5Helper.GetMD5HashFromFile(Server.MapPath(info.SRC));
             }
             if (info.PlayTime<=0)
             {

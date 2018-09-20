@@ -124,8 +124,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(80, 17);
-            this.toolStripStatusLabel1.Text = "目前更新事项";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(92, 17);
+            this.toolStripStatusLabel1.Text = "目前无更新事项";
             // 
             // toolStripStatusLabel2
             // 
@@ -148,9 +148,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormMain";
-            this.Text = "海底捞门店通知音乐播放器";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.groupBoxMusic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
