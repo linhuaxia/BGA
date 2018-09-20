@@ -91,7 +91,7 @@ namespace Lin.BGA.web.Controllers
         public ActionResult UpdateMD5()
         {
             var sresult = string.Empty;
-            var list = MusicBLL.GetList(a => true);
+            var list = MusicBLL.GetList(a => true).ToList();
             foreach (var item in list)
             {
                 var FileFullName = Server.MapPath(item.SRC);
