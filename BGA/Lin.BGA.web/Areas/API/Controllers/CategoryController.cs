@@ -23,7 +23,7 @@ namespace Lin.BGA.web.Areas.API.Controllers
         protected ICategoryInfoService CategoryBLL = AbstractFactory.CreateCategoryInfoService();
         public JsonResult GetList()
         {
-            var result = CategoryBLL.GetList(a => a.Enable).OrderByDescending(a => a.SortID).ThenBy(a => a.ID).Select(a => new {
+            var result = CategoryBLL.GetList(a => a.Enable).OrderBy(a => a.SortID).ThenBy(a => a.ID).Select(a => new {
                 a.ID,
                 a.Name,
                 MusicInfo = a.MusicInfo.Where(m => m.Enable).OrderByDescending(m => m.SortID).ThenBy(m => m.ID).Select(m => new {
