@@ -38,6 +38,10 @@ namespace Lin.BGA.web.Areas.API.Controllers
                 {
                     item.CategoryName = string.Empty;
                 }
+                if (item.FinishConfirmTime<DicInfo.DateZone)
+                {
+                    item.FinishConfirmTime = DicInfo.DateZone;
+                }
                 
             }
             bool result= MusicLogBLL.Create(list);

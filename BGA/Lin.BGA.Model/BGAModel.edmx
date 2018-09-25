@@ -46,6 +46,7 @@
           <Property Name="MusicName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="FinishConfirmTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ProfilesInfo">
           <Key>
@@ -230,6 +231,7 @@
           <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="StoreInfo" Relationship="BGAModel.FK_MusicLogInfo_StoreInfo" FromRole="MusicLogInfo" ToRole="StoreInfo" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FinishConfirmTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK_MusicLogInfo_StoreInfo">
           <End Type="BGAModel.StoreInfo" Role="StoreInfo" Multiplicity="1">
@@ -321,6 +323,7 @@
           <EntitySetMapping Name="MusicLogInfo">
             <EntityTypeMapping TypeName="BGAModel.MusicLogInfo">
               <MappingFragment StoreEntitySet="MusicLogInfo">
+                <ScalarProperty Name="FinishConfirmTime" ColumnName="FinishConfirmTime" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="MusicName" ColumnName="MusicName" />

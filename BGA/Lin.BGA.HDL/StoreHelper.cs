@@ -29,6 +29,14 @@ namespace Lin.BGA.HDL
             {
                 return false;
             }
+            if (info.ID==0)
+            {
+                if (info.CreateDate<DateTime.Now)
+                {
+                    return false;
+                }
+            }
+
             return info.IP == IP;
         }
     }

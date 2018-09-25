@@ -24,7 +24,7 @@ namespace Lin.BGA.HDL
         }
         private static IEnumerable<CategoryInfo> listCategory = null;
 
-        private  void FormMain_Load(object sender, EventArgs e)
+        private void FormMain_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel2.Text = " Version:" + Application.ProductVersion.ToString();
             LoginCheck();
@@ -49,6 +49,10 @@ namespace Lin.BGA.HDL
         /// </summary>
         private void LoadUI()
         {
+            if (!DataHelper.Ping(null))
+            {
+                return;
+            }
             var categoryClient = new APIClient.CategoryClient();
             listCategory = categoryClient.GetList();
             InitDataAsync();
@@ -105,8 +109,11 @@ namespace Lin.BGA.HDL
                 CurrentControl.SelectedIndex = -1;
                 return;
             }
-            // MessageBox.Show(CurrentControl.SelectedItem.ToString()); //执行双击事件
-
+            var confirmResult=  MessageBox.Show("是否确认已将音源输入切换至电脑？","切换提醒",MessageBoxButtons.OKCancel); //执行双击事件
+            if (confirmResult==DialogResult.Cancel)
+            {
+                return;
+            }
             var infoMusic = listCategory.SelectMany(c => c.MusicInfo).FirstOrDefault(a => a.Name == CurrentControl.SelectedItem.ToString());
             if (null == infoMusic)
             {
@@ -127,7 +134,11 @@ namespace Lin.BGA.HDL
             infoMusicLog.MusicName = infoMusic.Name;
             infoMusicLog.CategoryName = infoMusic.CategoryInfo.Name;
             infoMusicLog.CreateDate = DateTime.Now;
-            new MusicLogClient().CreateToClient(infoMusicLog);
+            infoMusicLog.FinishConfirmTime = DicInfo.DateZone;
+            if (infoMusicLog.StoreID>0)
+            {
+                new MusicLogClient().CreateToClient(infoMusicLog);
+            }
         }
 
 
@@ -138,27 +149,28 @@ namespace Lin.BGA.HDL
         /// <summary>
         /// 离线音乐文件
         /// </summary>
-        private  void InitDataAsync()
+        private void InitDataAsync()
         {
-                string BaseDir = GetCurrentMusicDirectory();
-                foreach (var itemCategory in listCategory)
+            string BaseDir = GetCurrentMusicDirectory();
+            foreach (var itemCategory in listCategory)
+            {
+                if (!Directory.Exists(BaseDir + itemCategory.Name))
                 {
-                    if (!Directory.Exists(BaseDir + itemCategory.Name))
-                    {
-                        Directory.CreateDirectory(BaseDir + itemCategory.Name);
-                    }
-
+                    Directory.CreateDirectory(BaseDir + itemCategory.Name);
                 }
+
+            }
             var listMusic = listCategory.SelectMany(a => a.MusicInfo).ToList();
-            Task.Run(() => {
+            Task.Run(() =>
+            {
                 DownLoadMusic(listMusic, 0);
             });
 
         }
 
-        private void DownLoadMusic(List<MusicInfo> listMusic,int Index)
+        private void DownLoadMusic(List<MusicInfo> listMusic, int Index)
         {
-            if (Index==listMusic.Count())
+            if (Index == listMusic.Count())
             {
                 return;
             }
@@ -169,7 +181,7 @@ namespace Lin.BGA.HDL
                             + "\\"
                             + itemMusic.SRC.Substring(itemMusic.SRC.LastIndexOf("/") + 1);
             string MD5Local = Tool.Md5Helper.GetMD5HashFromFile(FileFullName);
-            if (!File.Exists(FileFullName)||MD5Local!=itemMusic.MD5)
+            if (!File.Exists(FileFullName) || MD5Local != itemMusic.MD5)
             {
                 if (File.Exists(FileFullName))
                 {
@@ -179,7 +191,8 @@ namespace Lin.BGA.HDL
                 new APIHellper().DownloadFileAsync(HttpFileName,
                     FileFullName,
                     (object sender, System.Net.DownloadProgressChangedEventArgs e) => { toolStripStatusLabel1.Text = "正在下载音乐文件:" + itemMusic.Name; },
-                    (object sender, AsyncCompletedEventArgs e) => {
+                    (object sender, AsyncCompletedEventArgs e) =>
+                    {
                         toolStripStatusLabel1.Text = string.Empty;
                         DownLoadMusic(listMusic, Index + 1);
                     });
@@ -193,6 +206,16 @@ namespace Lin.BGA.HDL
         private static int TimeTickTimes = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (!DataHelper.Ping(null))
+            {
+                toolStripStatusLabelNetWork.Text = "网络连接失败";
+                return;
+            }
+            else
+            {
+                toolStripStatusLabelNetWork.Text = "网络正常";
+            }
+
             TimeTickTimes++;
 
             DateTime nowDate = DateTime.Now;
@@ -238,9 +261,16 @@ namespace Lin.BGA.HDL
 
         private void axWindowsMediaPlayer1_StatusChange(object sender, EventArgs e)
         {
+            Console.WriteLine(DateTime.Now.ToString("HH时mm分ss秒 ffff") + ":" + axWindowsMediaPlayer1.status);
             if ("已停止" == axWindowsMediaPlayer1.status)
             {
                 labelStatus.Text = "现时播放音乐：无";
+
+                FormFinishConfirm formFinishConfirm = new FormFinishConfirm();
+                formFinishConfirm.ShowDialog();
+                var musicLogClient = new MusicLogClient();
+                musicLogClient.UpdateLastOneFinishTIme();
+
             }
         }
 

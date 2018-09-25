@@ -46,6 +46,17 @@ namespace Lin.BGA.APIClient
             }
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<MusicLogInfo>>(json);
         }
+        public bool UpdateLastOneFinishTIme()
+        {
+            List<MusicLogInfo> list = GetClient();
+            if (null!=list && list.Count()>0)
+            {
+                var info = list.LastOrDefault();
+                info.FinishConfirmTime=DateTime.Now;
+            }
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(list);
+            return Tool.DocHelper.Write(GetLogFileFullName(), json);
+        }
 
         public bool CreateToServer()
         {

@@ -19,6 +19,7 @@ namespace Lin.BGA.Model
         public string MusicName { get; set; }
         public string CategoryName { get; set; }
         public System.DateTime CreateDate { get; set; }
+        public System.DateTime FinishConfirmTime { get; set; }
     
         public virtual StoreInfo StoreInfo { get; set; }
     }

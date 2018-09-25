@@ -40,6 +40,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelNetWork = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBoxMusic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -97,7 +98,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 10000;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // BtnUpdateCheck
@@ -114,7 +115,8 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabelNetWork});
             this.statusStrip1.Location = new System.Drawing.Point(0, 639);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(984, 22);
@@ -132,6 +134,12 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(56, 17);
             this.toolStripStatusLabel2.Text = "程序版本";
+            // 
+            // toolStripStatusLabelNetWork
+            // 
+            this.toolStripStatusLabelNetWork.Name = "toolStripStatusLabelNetWork";
+            this.toolStripStatusLabelNetWork.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabelNetWork.Text = "网络状态";
             // 
             // FormMain
             // 
@@ -171,6 +179,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelNetWork;
     }
 }
 

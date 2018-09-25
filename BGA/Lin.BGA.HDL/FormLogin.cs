@@ -52,5 +52,21 @@ namespace Lin.BGA.HDL
 
 
         }
+
+        private void BtnGuest_Click(object sender, EventArgs e)
+        {
+            var info = new StoreInfo();
+            info.ID = 0;
+            info.Code = "临时访客";
+            info.Name = "临时访客";
+            info.IP = System.Environment.MachineName;
+            info.CreateDate = DateTime.Now.AddHours(1);
+            info.Password = string.Empty;
+
+            var JsonText = Newtonsoft.Json.JsonConvert.SerializeObject(info);
+            Tool.DocHelper.Write(System.IO.Directory.GetCurrentDirectory() + "/登录信息", JsonText);
+            this.Close();
+
+        }
     }
 }

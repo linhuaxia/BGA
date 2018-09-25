@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.BtnSubmit = new System.Windows.Forms.Button();
+            this.BtnGuest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,11 +93,22 @@
             this.BtnSubmit.UseVisualStyleBackColor = true;
             this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
+            // BtnGuest
+            // 
+            this.BtnGuest.Location = new System.Drawing.Point(279, 231);
+            this.BtnGuest.Name = "BtnGuest";
+            this.BtnGuest.Size = new System.Drawing.Size(209, 23);
+            this.BtnGuest.TabIndex = 4;
+            this.BtnGuest.Text = "临时访客(一小时后超时)";
+            this.BtnGuest.UseVisualStyleBackColor = true;
+            this.BtnGuest.Click += new System.EventHandler(this.BtnGuest_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 266);
+            this.Controls.Add(this.BtnGuest);
             this.Controls.Add(this.BtnSubmit);
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.TxtCode);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Button BtnSubmit;
+        private System.Windows.Forms.Button BtnGuest;
     }
 }

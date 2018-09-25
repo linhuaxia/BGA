@@ -333,6 +333,38 @@ public class DataHelper : IRequiresSessionState
         return Result;
     }
 
+    /// <summary>
+    /// 是否能 Ping 通指定的主机
+    /// </summary>
+    /// <param name="ip">ip 地址或主机名或域名</param>
+    /// <returns>true 通，false 不通</returns>
+    public static bool Ping(string ip)
+    {
+        
+        if (string.IsNullOrEmpty(ip))
+        {
+            ip = "bga.web.gzlfxx.cn";
+        }
+        int timeout = 500;
+        string data = "Test Data!";
+        try
+        {
+            System.Net.NetworkInformation.Ping p = new System.Net.NetworkInformation.Ping();
+            System.Net.NetworkInformation.PingOptions options = new System.Net.NetworkInformation.PingOptions();
+            options.DontFragment = true;
+            byte[] buffer = Encoding.ASCII.GetBytes(data);
+            System.Net.NetworkInformation.PingReply reply = p.Send(ip, timeout, buffer, options);
+            if (reply.Status == System.Net.NetworkInformation.IPStatus.Success)
+                return true;
+            else
+                return false;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+        
+    }
 
 
 }
