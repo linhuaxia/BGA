@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.APIClient.dll" size="14848">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.APIClient.dll" size="15872">
       <assemblyIdentity name="Lin.BGA.APIClient" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zy+MQ52B1cYdYj6B+ECwj8XqKyWr8E05LF+5cVQcNt8=</dsig:DigestValue>
+        <dsig:DigestValue>iXbSL42tOUH0DQbqkEc1SQHkL9QF4SLvvWSwOJpbXLQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -134,7 +134,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vs/oGfuvuyQjfJQes1jc0/LP8lWbe0mK+3uYTuPsQps=</dsig:DigestValue>
+        <dsig:DigestValue>wKtXBiF0nqSzn3uhqk1HhytlhDYmnBmGmAd7QFej3mo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,7 +146,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IqYZL50bijk23J3QWxmBRV16DCrMllk9R6Fp2lba6/8=</dsig:DigestValue>
+        <dsig:DigestValue>oZ54g70yZSKWwJ9olf890PLzZ/1+olWQVFfmm4vN0Rw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

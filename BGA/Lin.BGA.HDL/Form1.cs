@@ -220,6 +220,10 @@ namespace Lin.BGA.HDL
 
             DateTime nowDate = DateTime.Now;
             var listProfiles = new ProfilesClient().GetAllConfig();
+            if (null==listProfiles||listProfiles.Count()==0)
+            {
+                return;
+            }
             int EnableUpdateTimeBegin = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeBegin").Value);
             int EnableUpdateTimeEnd = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeEnd").Value);
             int EnableUpdateTimeInterval = Tool.Function.ConverToInt(listProfiles.FirstOrDefault(a => a.Key == "EnableUpdateTimeInterval").Value);
