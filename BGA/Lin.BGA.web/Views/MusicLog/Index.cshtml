@@ -82,27 +82,33 @@
         <th>
             播放时间
         </th>
+        <th>
+            结束确认时间
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td style="text-align:left;">
-                @item.StoreInfo.Name
-            </td>
-            <td>
-                @item.CategoryName
-            </td>
-            <td>
-                @item.MusicName
-            </td>
-            <td>
-               @item.CreateDate
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td style="text-align:left;">
+            @item.StoreInfo.Name
+        </td>
+        <td>
+            @item.CategoryName
+        </td>
+        <td>
+            @item.MusicName
+        </td>
+        <td>
+            @item.CreateDate.ToString("yyyy-MM-dd HH:mm:ss")
+        </td>
+        <td>
+            @item.FinishConfirmTime.ToString("yyyy-MM-dd HH:mm:ss")
+        </td>
+    </tr>
     }
 
 </table>

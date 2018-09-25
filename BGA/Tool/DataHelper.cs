@@ -345,7 +345,7 @@ public class DataHelper : IRequiresSessionState
         {
             ip = "bga.web.gzlfxx.cn";
         }
-        int timeout = 500;
+        int timeout = 1000;
         string data = "Test Data!";
         try
         {
