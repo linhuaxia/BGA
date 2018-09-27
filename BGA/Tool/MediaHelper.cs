@@ -12,7 +12,7 @@ namespace Tool
     {
         public  static Task<bool> AmrToMp3Async(string MapPathAMR, string SourceNameOnly)
         {
-            return  Task.Run<bool>(()=> AmrToMp3(MapPathAMR, SourceNameOnly));
+            return AsyncHelper.Run<bool>(()=> AmrToMp3(MapPathAMR, SourceNameOnly));
         }
 
         /// <summary>

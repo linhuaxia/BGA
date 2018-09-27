@@ -29,7 +29,7 @@ namespace Lin.BGA.HDL
             toolStripStatusLabel2.Text = " Version:" + Application.ProductVersion.ToString();
             LoginCheck();
 
-            LoadUI();
+            LoadUI(true);
 
         }
         public void LoginCheck()
@@ -47,16 +47,22 @@ namespace Lin.BGA.HDL
         /// <summary>
         ///获取服务器最新音乐数据，并显示列表及音乐文件
         /// </summary>
-        private void LoadUI()
+        private void LoadUI(bool EnableOffLine = false)
         {
-            if (!DataHelper.Ping(null))
-            {
-                return;
-            }
             var categoryClient = new APIClient.CategoryClient();
             listCategory = categoryClient.GetList();
-            InitDataAsync();
 
+            if (!DataHelper.Ping(null))
+            {
+                if (!EnableOffLine)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                InitDataAsync();
+            }
 
             while (panelMusic.Controls.Count > 0)
             {
@@ -109,11 +115,11 @@ namespace Lin.BGA.HDL
                 CurrentControl.SelectedIndex = -1;
                 return;
             }
-            var confirmResult=  MessageBox.Show("是否确认已将音源输入切换至电脑？","切换提醒",MessageBoxButtons.OKCancel); //执行双击事件
-            if (confirmResult==DialogResult.Cancel)
-            {
-                return;
-            }
+
+            var formFinishConfirm = new FormFinishConfirm(true);
+            formFinishConfirm.StartPosition = FormStartPosition.CenterParent;
+            var confirmResult = formFinishConfirm.ShowDialog();//  MessageBox.Show("是否确认已将音源输入切换至电脑？","切换提醒",MessageBoxButtons.OKCancel); //执行双击事件
+
             var infoMusic = listCategory.SelectMany(c => c.MusicInfo).FirstOrDefault(a => a.Name == CurrentControl.SelectedItem.ToString());
             if (null == infoMusic)
             {
@@ -135,7 +141,7 @@ namespace Lin.BGA.HDL
             infoMusicLog.CategoryName = infoMusic.CategoryInfo.Name;
             infoMusicLog.CreateDate = DateTime.Now;
             infoMusicLog.FinishConfirmTime = DicInfo.DateZone;
-            if (infoMusicLog.StoreID>0)
+            if (infoMusicLog.StoreID > 0)
             {
                 new MusicLogClient().CreateToClient(infoMusicLog);
             }
@@ -187,15 +193,25 @@ namespace Lin.BGA.HDL
                 {
                     File.Delete(FileFullName);
                 }
-                var HttpFileName = APIClient.APIHellper.ConstConfig.APIURL.Replace("/api", "") + itemMusic.SRC;
-                new APIHellper().DownloadFileAsync(HttpFileName,
-                    FileFullName,
-                    (object sender, System.Net.DownloadProgressChangedEventArgs e) => { toolStripStatusLabel1.Text = "正在下载音乐文件:" + itemMusic.Name; },
-                    (object sender, AsyncCompletedEventArgs e) =>
-                    {
-                        toolStripStatusLabel1.Text = string.Empty;
-                        DownLoadMusic(listMusic, Index + 1);
-                    });
+                try
+                {
+                    var HttpFileName = APIClient.APIHellper.ConstConfig.APIURL.Replace("/api", "") + itemMusic.SRC;
+                    new APIHellper().DownloadFileAsync(HttpFileName,
+                        FileFullName,
+                        (object sender, System.Net.DownloadProgressChangedEventArgs e) => { toolStripStatusLabel1.Text = "正在下载音乐文件:" + itemMusic.Name; },
+                        (object sender, AsyncCompletedEventArgs e) =>
+                        {
+                            toolStripStatusLabel1.Text = string.Empty;
+                            DownLoadMusic(listMusic, Index + 1);
+                        });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("{0}:下载文件出错，特别注意这条消息！！错误代码：{1}", DateTime.Now, ex.Message);
+                    DownLoadMusic(listMusic, Index + 1);
+                    //throw;
+                }
+
             }
             else
             {
@@ -220,7 +236,7 @@ namespace Lin.BGA.HDL
 
             DateTime nowDate = DateTime.Now;
             var listProfiles = new ProfilesClient().GetAllConfig();
-            if (null==listProfiles||listProfiles.Count()==0)
+            if (null == listProfiles || listProfiles.Count() == 0)
             {
                 return;
             }
@@ -270,7 +286,8 @@ namespace Lin.BGA.HDL
             {
                 labelStatus.Text = "现时播放音乐：无";
 
-                FormFinishConfirm formFinishConfirm = new FormFinishConfirm();
+                FormFinishConfirm formFinishConfirm = new FormFinishConfirm(false);
+                formFinishConfirm.StartPosition = FormStartPosition.CenterParent;
                 formFinishConfirm.ShowDialog();
                 var musicLogClient = new MusicLogClient();
                 musicLogClient.UpdateLastOneFinishTIme();

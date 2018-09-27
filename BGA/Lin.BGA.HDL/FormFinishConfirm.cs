@@ -12,9 +12,19 @@ namespace Lin.BGA.HDL
 {
     public partial class FormFinishConfirm : Form
     {
-        public FormFinishConfirm()
+        private bool _TrueBeforeFalseAfter;
+        public FormFinishConfirm(bool TrueBeforeFalseAfter)
         {
+            _TrueBeforeFalseAfter = TrueBeforeFalseAfter;
             InitializeComponent();
+            if (_TrueBeforeFalseAfter)
+            {
+                pictureBox1.Image = global::Lin.BGA.HDL.Properties.Resources.Before;
+            }
+            else
+            {
+                pictureBox1.Image = global::Lin.BGA.HDL.Properties.Resources.After;
+            }
         }
 
         private void BtnOK_Click(object sender, EventArgs e)

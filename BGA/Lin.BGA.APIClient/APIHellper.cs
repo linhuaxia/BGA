@@ -97,7 +97,6 @@ namespace Lin.BGA.APIClient
 
         public  string GetHttpData(string Url, int Timeout)
         {
-            string sException = null;
             string sRslt = null;
             WebResponse oWebRps = null;
             WebRequest oWebRqst = WebRequest.Create(Url);
@@ -105,30 +104,28 @@ namespace Lin.BGA.APIClient
             try
             {
                 oWebRps = oWebRqst.GetResponse();
+                StreamReader oStreamRd = new StreamReader(oWebRps.GetResponseStream(), System.Text.Encoding.GetEncoding("utf-8"));
+                sRslt = oStreamRd.ReadToEnd();
+                oStreamRd.Close();
+                return sRslt;
             }
             catch (WebException e)
             {
-                sException = e.Message.ToString();
-                return sException;
-                //EYResponse.Write(sException);
+                Console.WriteLine(e.Message);
+                return string.Empty;
             }
             catch (Exception e)
             {
-                sException = e.ToString();
-                return sException;
-                // EYResponse.Write(sException);
+                Console.WriteLine(e.Message);
+                return string.Empty;
             }
             finally
             {
                 if (oWebRps != null)
                 {
-                    StreamReader oStreamRd = new StreamReader(oWebRps.GetResponseStream(), System.Text.Encoding.GetEncoding("utf-8"));
-                    sRslt = oStreamRd.ReadToEnd();
-                    oStreamRd.Close();
                     oWebRps.Close();
                 }
             }
-            return sRslt;
         }
 
         public  string PostHttpData(string Url, string postData)

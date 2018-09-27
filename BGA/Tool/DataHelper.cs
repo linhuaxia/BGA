@@ -10,6 +10,8 @@ using System.Collections;
 using System.Web.SessionState;
 using Tool;
 using Newtonsoft.Json;
+using System.Threading;
+using System.Net.NetworkInformation;
 
 /// <summary>
 ///DataHelp 的摘要说明
@@ -345,25 +347,23 @@ public class DataHelper : IRequiresSessionState
         {
             ip = "bga.web.gzlfxx.cn";
         }
-        int timeout = 1000;
-        string data = "Test Data!";
-        try
+        using (Ping ping = new System.Net.NetworkInformation.Ping())
         {
-            System.Net.NetworkInformation.Ping p = new System.Net.NetworkInformation.Ping();
-            System.Net.NetworkInformation.PingOptions options = new System.Net.NetworkInformation.PingOptions();
-            options.DontFragment = true;
-            byte[] buffer = Encoding.ASCII.GetBytes(data);
-            System.Net.NetworkInformation.PingReply reply = p.Send(ip, timeout, buffer, options);
-            if (reply.Status == System.Net.NetworkInformation.IPStatus.Success)
-                return true;
-            else
+            try
+            {
+                Console.WriteLine("{0},线程{1},{2}", DateTime.Now.ToString("HH:mm:ss ffff"), Thread.CurrentThread.ManagedThreadId.ToString(), "开始执行ping ");
+                PingReply pingReply = ping.Send(ip);
+                Console.WriteLine("{0},线程{1},{2}", DateTime.Now.ToString("HH:mm:ss ffff"), Thread.CurrentThread.ManagedThreadId.ToString(), "获取ping状态为： " + pingReply.Status);
+                return pingReply.Status == IPStatus.Success;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0},线程{1},{2}", DateTime.Now.ToString("HH:mm:ss ffff"), Thread.CurrentThread.ManagedThreadId.ToString(), "ping出错，错误详细： " + ex.Message);
                 return false;
+            }
+
         }
-        catch (Exception)
-        {
-            return false;
-        }
-        
+
     }
 
 

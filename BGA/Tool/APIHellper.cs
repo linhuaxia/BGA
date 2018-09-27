@@ -73,64 +73,65 @@ namespace Tool
         }
 
 
-        public async Task<Stream> GetResponseStream(string URL)
-        {
-            return await GetResponseStreamAsync(URL);
-        }
-        public async Task<Stream> GetResponseStreamAsync(string URL)
-        {
-            var httpClient = new System.Net.Http.HttpClient();
-            var response = await httpClient.GetAsync(URL);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return await response.Content.ReadAsStreamAsync();
-            }
-            return null;
-        }
+        //public async Task<Stream> GetResponseStream(string URL)
+        //{
+        //    return await GetResponseStreamAsync(URL);
+        //}
+        //public async Task<Stream> GetResponseStreamAsync(string URL)
+        //{
+        //    var httpClient = new System.Net.Http.HttpClient();
+        //    var response = await httpClient.GetAsync(URL);
+        //    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //    {
+        //        return await response.Content.ReadAsStreamAsync();
+        //    }
+        //    return null;
+        //}
 
 
-        /// <summary>
-        /// 异步Get数据
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        public async Task<string> GetHttpData(string url)
-        {
-            return await GetHttpDataAsync(url);
-        }
-        /// <summary>
-        /// 异步Get数据
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        public async Task<string> GetHttpDataAsync(string url)
-        {
-            var httpClient = new System.Net.Http.HttpClient();
-            var response = await httpClient.GetAsync(url);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return await response.Content.ReadAsStringAsync();//加await的意思是说，主ＵＩ等待它执行完成后，再继续执行，这种就叫作并行！
-            }
-            return null;
-        }
-        public async Task<string> PostHttpData(string url, System.Net.Http.HttpContent postdata)
-        {
-            return await PostHttpDataAsync(url, postdata);
-        }
 
-        public async Task<string> PostHttpDataAsync(string url, System.Net.Http.HttpContent postdata)
-        {
-            var httpClient = new System.Net.Http.HttpClient();
-            var response = await httpClient.PostAsync(url, postdata);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return await response.Content.ReadAsStringAsync();//加await的意思是说，主ＵＩ等待它执行完成后，再继续执行，这种就叫作并行！
-            }
-            else
-            {
-                return null;//error
-            }
-        }
+        ///// <summary>
+        ///// 异步Get数据
+        ///// </summary>
+        ///// <param name="url"></param>
+        ///// <returns></returns>
+        //public async Task<string> GetHttpData(string url)
+        //{
+        //    return await GetHttpDataAsync(url);
+        //}
+        ///// <summary>
+        ///// 异步Get数据
+        ///// </summary>
+        ///// <param name="url"></param>
+        ///// <returns></returns>
+        //public async Task<string> GetHttpDataAsync(string url)
+        //{
+        //    var httpClient = new System.Net.Http.HttpClient();
+        //    var response = await httpClient.GetAsync(url);
+        //    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //    {
+        //        return await response.Content.ReadAsStringAsync();//加await的意思是说，主ＵＩ等待它执行完成后，再继续执行，这种就叫作并行！
+        //    }
+        //    return null;
+        //}
+        //public async Task<string> PostHttpData(string url, System.Net.Http.HttpContent postdata)
+        //{
+        //    return await PostHttpDataAsync(url, postdata);
+        //}
+
+        //public async Task<string> PostHttpDataAsync(string url, System.Net.Http.HttpContent postdata)
+        //{
+        //    var httpClient = new System.Net.Http.HttpClient();
+        //    var response = await httpClient.PostAsync(url, postdata);
+        //    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //    {
+        //        return await response.Content.ReadAsStringAsync();//加await的意思是说，主ＵＩ等待它执行完成后，再继续执行，这种就叫作并行！
+        //    }
+        //    else
+        //    {
+        //        return null;//error
+        //    }
+        //}
 
         public T APIJsonDeserialize<T>(string json)
         {
