@@ -9,7 +9,7 @@ using PagedList;
 using Lin.BGA.Model;
 using Tool;
 using System.Dynamic;
-using System.Data.Entity;
+//using System.Data.Entity;
 
 namespace Lin.BGA.web.Controllers
 {
@@ -30,12 +30,12 @@ namespace Lin.BGA.web.Controllers
             }
             if (DateBegin > DicInfo.DateZone)
             {
-                list = list.Where(a => DbFunctions.DiffDays(a.CreateDate, DateBegin) <= 0);
+                //list = list.Where(a => DbFunctions.DiffDays(a.CreateDate, DateBegin) <= 0);
                 ViewBag.TxtDateBegin = DateBegin.ToString("yyyy-MM-dd");
             }
             if (DateEnd > DicInfo.DateZone)
             {
-                list = list.Where(a => DbFunctions.DiffDays(a.CreateDate, DateEnd) >= 0);
+               // list = list.Where(a => DbFunctions.DiffDays(a.CreateDate, DateEnd) >= 0);
                 ViewBag.TxtDateEnd = DateEnd.ToString("yyyy-MM-dd");
             }
             list = list.OrderByDescending(p => p.CreateDate);

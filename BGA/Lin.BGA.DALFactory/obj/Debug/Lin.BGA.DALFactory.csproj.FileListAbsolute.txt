@@ -1,8 +1,8 @@
+D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.DALFactory.dll.config
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.DALFactory.dll
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.DALFactory.pdb
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\EntityFramework.dll
-D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\EntityFramework.SqlServer.dll
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.DAL.dll
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.IDAL.dll
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.Model.dll
@@ -13,11 +13,8 @@ D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.IDAL.dll.config
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.Model.pdb
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\Lin.BGA.Model.dll.config
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\EntityFramework.xml
-D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\EntityFramework.SqlServer.xml
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\zh-Hans\EntityFramework.resources.dll
-D:\Develop\BGA\BGA\Lin.BGA.DALFactory\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csproj.CoreCompileInputs.cache
+D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csprojAssemblyReference.cache
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csproj.CopyComplete
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.dll
 D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.pdb
-D:\Develop\BGA\BGA\Lin.BGA.DALFactory\obj\Debug\Lin.BGA.DALFactory.csprojAssemblyReference.cache

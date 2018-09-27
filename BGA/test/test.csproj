@@ -8,9 +8,10 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>test</RootNamespace>
     <AssemblyName>test</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lin.BGA.APIClient\Lin.BGA.APIClient.csproj">
+      <Project>{5ea0165f-0e42-4d0b-a38b-50a33f0d06a3}</Project>
+      <Name>Lin.BGA.APIClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lin.BGA.Model\Lin.BGA.Model.csproj">
+      <Project>{57560fc8-4d40-4132-af75-730661f72ed5}</Project>
+      <Name>Lin.BGA.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,7 +22,7 @@ namespace Lin.BGA.DAL
 
         public bool Delete(T info)
         {
-            db.Entry<T>(info).State = System.Data.Entity.EntityState.Deleted;
+            db.Entry<T>(info).State =System.Data.EntityState.Deleted;
             //return db.SaveChanges() > 0;
             return true;
         }
@@ -30,7 +30,7 @@ namespace Lin.BGA.DAL
         {
             foreach (var item in list)
             {
-                db.Entry<T>(item).State = System.Data.Entity.EntityState.Deleted;
+                db.Entry<T>(item).State = System.Data.EntityState.Deleted;
             }
             //return db.SaveChanges() > 0;
             return true;
@@ -38,7 +38,7 @@ namespace Lin.BGA.DAL
 
         public bool Edit(T info)
         {
-            db.Entry<T>(info).State = System.Data.Entity.EntityState.Modified;
+            db.Entry<T>(info).State = System.Data.EntityState.Modified;
             // return db.SaveChanges() > 0;
             return true;
         }

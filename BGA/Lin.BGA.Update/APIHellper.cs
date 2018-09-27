@@ -39,24 +39,24 @@ namespace Lin.BGA.Update
             }
             return url;
         }
-        public bool DownloadFile(string URL, string SaveFileFullName)
-        {
-            if (File.Exists(SaveFileFullName))
-            {
-                File.Delete(SaveFileFullName);
-            }
-            string FilePath = SaveFileFullName.Substring(0, SaveFileFullName.LastIndexOf("\\"));
-            if (!Directory.Exists(FilePath))
-            {
-                Directory.CreateDirectory(FilePath);
-            }
-            using (WebClient client = new WebClient())
-            {
-               var t= Task.Run(()=> { client.DownloadFile(URL, SaveFileFullName); });
-                t.Wait();
-            }
-            return true;
-        }
+        //public bool DownloadFile(string URL, string SaveFileFullName)
+        //{
+        //    if (File.Exists(SaveFileFullName))
+        //    {
+        //        File.Delete(SaveFileFullName);
+        //    }
+        //    string FilePath = SaveFileFullName.Substring(0, SaveFileFullName.LastIndexOf("\\"));
+        //    if (!Directory.Exists(FilePath))
+        //    {
+        //        Directory.CreateDirectory(FilePath);
+        //    }
+        //    using (WebClient client = new WebClient())
+        //    {
+        //       var t= Task.Run(()=> { client.DownloadFile(URL, SaveFileFullName); });
+        //        t.Wait();
+        //    }
+        //    return true;
+        //}
 
 
         public void DownloadFileAsync(string URL, string SaveFileFullName,
@@ -173,40 +173,6 @@ namespace Lin.BGA.Update
         }
 
 
-
-        /// <summary>
-        /// 异步Get数据
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        public async Task<string> GetHttpDataAsync(string url)
-        {
-            using (var httpClient = new System.Net.Http.HttpClient())
-            {
-                var response = await httpClient.GetAsync(url);
-                return await response.Content.ReadAsStringAsync();
-            }
-        }
-        public string PostHttpData(string url, System.Net.Http.HttpContent postdata)
-        {
-            var t = PostHttpDataAsync(url, postdata);
-           // t.Wait();
-            return t.Result;
-        }
-
-        public async Task<string> PostHttpDataAsync(string url, System.Net.Http.HttpContent postdata)
-        {
-            var httpClient = new System.Net.Http.HttpClient();
-            var response = await httpClient.PostAsync(url, postdata);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return await response.Content.ReadAsStringAsync();//加await的意思是说，主ＵＩ等待它执行完成后，再继续执行，这种就叫作并行！
-            }
-            else
-            {
-                return null;//error
-            }
-        }
 
         public T APIJsonDeserialize<T>(string json)
         {

@@ -11,6 +11,8 @@ namespace test
     {
         static void Main(string[] args)
         {
+            Lin.BGA.APIClient.CategoryClient c = new Lin.BGA.APIClient.CategoryClient();
+            c.GetList();
             bool online = false; //是否在线
             Ping ping = new Ping();
             PingReply pingReply = ping.Send("bga.web.gzlfxx.cn");

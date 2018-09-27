@@ -69,7 +69,8 @@ namespace Lin.BGA.APIClient
 
         public bool CreateToServer()
         {
-            Task.Run<bool>(() => {
+
+            Tool.AsyncHelper.Run<bool>(() => {
                 List<MusicLogInfo> list = GetClient();
                 list = list.Where(a => a.FinishConfirmTime > DicInfo.DateZone).ToList();
                 string json = Newtonsoft.Json.JsonConvert.SerializeObject(list);

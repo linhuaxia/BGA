@@ -4,17 +4,17 @@
   <description asmv2:publisher="海底捞门店通知音乐播放器" asmv2:product="海底捞门店通知音乐播放器" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="海底捞门店通知音乐播放器.exe.manifest" size="11428">
+    <dependentAssembly dependencyType="install" codebase="海底捞门店通知音乐播放器.exe.manifest" size="11138">
       <assemblyIdentity name="海底捞门店通知音乐播放器.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jYM3wWuNmrEhiewpccsYnvf2PXf4LnlZx9M3qIOIO3A=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>3Hhvet8yt1ptRCiDu+y1dXJSNWw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

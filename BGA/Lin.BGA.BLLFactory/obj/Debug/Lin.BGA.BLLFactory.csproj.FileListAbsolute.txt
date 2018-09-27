@@ -1,8 +1,9 @@
+D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csprojAssemblyReference.cache
+D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.BLLFactory.dll.config
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.BLLFactory.dll
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.BLLFactory.pdb
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\EntityFramework.dll
-D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\EntityFramework.SqlServer.dll
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.BLL.dll
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.DAL.dll
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.DALFactory.dll
@@ -20,13 +21,9 @@ D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.IBLL.dll.config
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.Model.pdb
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.Model.dll.config
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\EntityFramework.xml
-D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\EntityFramework.SqlServer.xml
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.IDAL.pdb
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\Lin.BGA.IDAL.dll.config
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\zh-Hans\EntityFramework.resources.dll
-D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csproj.CoreCompileInputs.cache
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csproj.CopyComplete
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.dll
 D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.pdb
-D:\Develop\BGA\BGA\Lin.BGA.BLLFactory\obj\Debug\Lin.BGA.BLLFactory.csprojAssemblyReference.cache

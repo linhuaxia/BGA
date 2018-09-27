@@ -12,7 +12,6 @@ using System.Windows.Forms;
 
 using Lin.BGA.APIClient;
 using Lin.BGA.Model;
-using static Lin.BGA.APIClient.ProfilesClient;
 
 namespace Lin.BGA.HDL
 {
@@ -49,7 +48,7 @@ namespace Lin.BGA.HDL
         /// </summary>
         private void LoadUI(bool EnableOffLine = false)
         {
-            var categoryClient = new APIClient.CategoryClient();
+            var categoryClient = new Lin.BGA.APIClient.CategoryClient();
             listCategory = categoryClient.GetList();
 
             if (!DataHelper.Ping(null))
@@ -167,9 +166,10 @@ namespace Lin.BGA.HDL
 
             }
             var listMusic = listCategory.SelectMany(a => a.MusicInfo).ToList();
-            Task.Run(() =>
+           Tool.AsyncHelper.Run<bool>(() =>
             {
                 DownLoadMusic(listMusic, 0);
+                return true;
             });
 
         }
