@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8A9EBB4D-5316-4439-986B-C4D6ED9EC0C1}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Lin.BGA.HDL</RootNamespace>
     <AssemblyName>海底捞门店通知音乐播放器</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>

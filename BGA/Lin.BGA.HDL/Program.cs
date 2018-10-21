@@ -21,10 +21,19 @@ namespace Lin.BGA.HDL
             if (instance == null)
             {
                 Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            var mainForm = new FormMain();
-            mainForm.StartPosition = FormStartPosition.CenterScreen;
-            Application.Run(mainForm);
+                Application.SetCompatibleTextRenderingDefault(false);
+                var mainForm = new FormMain();
+                mainForm.StartPosition = FormStartPosition.CenterScreen;
+                try
+                {
+                    Application.Run(mainForm);
+                }
+                catch (Exception ex)
+                {
+                    //Tool.DocHelper.Write(Environment.CurrentDirectory+ "\\ErrorLog.txt", ex.Message + "\n");
+                    Console.WriteLine(ex.Message);
+                    Console.ReadKey();
+                }
             }
             else
             {

@@ -166,11 +166,11 @@ namespace Lin.BGA.HDL
 
             }
             var listMusic = listCategory.SelectMany(a => a.MusicInfo).ToList();
-           Tool.AsyncHelper.Run<bool>(() =>
-            {
-                DownLoadMusic(listMusic, 0);
-                return true;
-            });
+            Tool.AsyncHelper.Run<bool>(() =>
+             {
+                 DownLoadMusic(listMusic, 0);
+                 return true;
+             });
 
         }
 
@@ -189,12 +189,13 @@ namespace Lin.BGA.HDL
             string MD5Local = Tool.Md5Helper.GetMD5HashFromFile(FileFullName);
             if (!File.Exists(FileFullName) || MD5Local != itemMusic.MD5)
             {
-                if (File.Exists(FileFullName))
-                {
-                    File.Delete(FileFullName);
-                }
                 try
                 {
+                    if (File.Exists(FileFullName))
+                    {
+                        File.Delete(FileFullName);
+                    }
+
                     var HttpFileName = APIClient.APIHellper.ConstConfig.APIURL.Replace("/api", "") + itemMusic.SRC;
                     new APIHellper().DownloadFileAsync(HttpFileName,
                         FileFullName,

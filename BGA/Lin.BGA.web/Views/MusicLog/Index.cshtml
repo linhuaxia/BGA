@@ -106,7 +106,7 @@
             @item.CreateDate.ToString("yyyy-MM-dd HH:mm:ss")
         </td>
         <td>
-            @item.FinishConfirmTime.ToString("yyyy-MM-dd HH:mm:ss")
+            @(item.FinishConfirmTime<=DicInfo.DateZone?"": item.FinishConfirmTime.ToString("yyyy-MM-dd HH:mm:ss"))
         </td>
     </tr>
     }

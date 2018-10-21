@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resource\Images\favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="海底捞门店通知音乐播放器" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="海底捞门店通知音乐播放器" version="2.0.1.1" language="neutral" processorArchitecture="msil" />
     <commandLine file="海底捞门店通知音乐播放器.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -67,18 +67,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KinnSoft.Excel.OfficeOpenXml.dll" size="200704">
-      <assemblyIdentity name="KinnSoft.Excel.OfficeOpenXml" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>AxVrYWe/sYDLtoW2kQa8VLwqDps=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lin.BGA.APIClient.dll" size="13312">
       <assemblyIdentity name="Lin.BGA.APIClient" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -86,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jgDsUPnkVLqymrXFlZulLBA32eg=</dsig:DigestValue>
+        <dsig:DigestValue>g/J+wtwJhZEa4MmyctGaiG/W1Ao=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +86,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LUOmc+HDHtBd/J/T61s0d4pZJ1s=</dsig:DigestValue>
+        <dsig:DigestValue>RfjmwK9XpAWwV07jElaa87fOiGY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -127,36 +115,36 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Tool.dll" size="52224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Tool.dll" size="44544">
       <assemblyIdentity name="Tool" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>c1BR3khCCUZ5U29nOYqo4czszmQ=</dsig:DigestValue>
+        <dsig:DigestValue>875Rs/YSrV4UpOUBsbWqdjJPEKU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="海底捞门店通知音乐播放器.exe" size="182784">
-      <assemblyIdentity name="海底捞门店通知音乐播放器" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="海底捞门店通知音乐播放器.exe" size="183296">
+      <assemblyIdentity name="海底捞门店通知音乐播放器" version="2.0.1.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9rnfbs1fVKVUkLH3ERbPTYKJqrY=</dsig:DigestValue>
+        <dsig:DigestValue>iRhfbnrvZVqqaps3ymCHZgxYHpc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ReadMe(使用说明).txt" size="1674">
+  <file name="ReadMe(使用说明).txt" size="3041">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3g1xRiJoF7yTdZ0x+6HHamTYy24=</dsig:DigestValue>
+      <dsig:DigestValue>rumll8q07fyVYOAioLAyv1OVveU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resource\Images\bg.jpg" size="45012">

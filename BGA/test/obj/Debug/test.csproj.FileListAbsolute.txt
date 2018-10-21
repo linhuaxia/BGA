@@ -9,7 +9,6 @@ D:\Develop\BGA\BGA\test\bin\Debug\Lin.BGA.Model.dll
 D:\Develop\BGA\BGA\test\bin\Debug\Newtonsoft.Json.dll
 D:\Develop\BGA\BGA\test\bin\Debug\Tool.dll
 D:\Develop\BGA\BGA\test\bin\Debug\EntityFramework.dll
-D:\Develop\BGA\BGA\test\bin\Debug\KinnSoft.Excel.OfficeOpenXml.dll
 D:\Develop\BGA\BGA\test\bin\Debug\ThoughtWorks.QRCode.dll
 D:\Develop\BGA\BGA\test\bin\Debug\Lin.BGA.APIClient.pdb
 D:\Develop\BGA\BGA\test\bin\Debug\Lin.BGA.Model.pdb

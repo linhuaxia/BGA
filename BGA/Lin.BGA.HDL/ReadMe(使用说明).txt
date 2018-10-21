@@ -2,35 +2,35 @@
 1、本程序为绿色版本，请双击《海底捞门店通知音乐播放器.exe》启动应用
 	为方便操作，您可以右键该文件，发送到桌面快捷方式
 2、如程序无法运行，请进行以下检查：
-	a)安装支持环境.net framwork4.7.2，安装文件是《NDP472-KB4054531-Web.exe》，注意需联网安装
-	b)确保你的电脑能连到公司服务器
+	a)安装支持环境.net framwork4.7.2，安装文件是《dotNetFx40_Full_x86_x64.exe》
+	b)确保你的电脑能连到公司服务器bga.web.gzlfxx.cn
 3、登录帐号及密码请咨询管理人员，（通常初始密码为haidilao123456),本系统具有设备绑定程序，如遇到提示《系统检查登录设备异常，请联系管理员》，通常原因是帐号绑定了其它设备或您的电脑重装了操作系统，此时联系管理员清除绑定信息即可
 
 
 	---------------------------------------------
 	|copy righst @四川海底捞餐饮股份有限公司	|
-	|											|
-	|technology Provide by联方信息tech			|
+	|						|
+	|technology Provide by联方信息tech		|
 	---------------------------------------------
+以下为文件相关信息，供安装人员参考：
+		目录MusicOffLine		离线音乐文件夹，在有网络时，会自动更新，此目录可删除，有网络后自动下载最新文件
+		目录Update			自动更新程序，此目录不会有任何改动，【请确认安装到客户电脑时，有此目录，否则程序以后不能自行更新】
+		目录zh-Hans			不要动这个目录，它只是一个代码库
+		AxInterop.WMPLib.dll		不要动,它是一个代码库
+		Category.json			离线音乐文件分类及音乐文件结构文件，可以删除，有网络时会自动更新
+		EntityFramework.dll		不要动,它是一个代码库，通常有更新也不会覆盖它
+		Interop.WMPLib.dll		不要动,它是一个代码库，通常有更新也不会覆盖它
+		KinnSoft.Excel.OfficeOpenXml.dll不要动,它是一个代码库，通常有更新也不会覆盖它
+		Lin.BGA.APIClient.dll		不要动,它是一个代码库,有更新时，它通常会被更新
+		Lin.BGA.Model.dll		不要动,它是一个代码库,有更新时，它通常会被更新
+		MusicLog.json			播放日志文件，这个文件安装时不存在，在安装时，需要确认它不存在或是空白的，否则后果：后台看到日志不准确
+		dotNetFx40_Full_x86_x64.exe	它是微软的.net framework 4.7.2,与本程序无关，它只是所有程序运行的环境要求
+		Newtonsoft.Json.dll		不要动,它是一个代码库，通常有更新也不会覆盖它
+		ThoughtWorks.QRCode.dll		不要动,它是一个代码库，通常有更新也不会覆盖它
+		Tool.dll			不要动,它是一个代码库,有更新时，它通常会被更新
+		登录信息			记录用户登录信息，【在复制给其它机器时，一定要确认此文件不存在，否则其它机不需登录】
+		海底捞门店通知音乐播放器.exe	程序主文件入口
+		海底捞门店通知音乐播放器.exe.config	不要动，它是一个配置文件，通常不会有变化的
+		海底捞门店通知音乐播放器.exe.manifest	不要动，它是一个配置文件，通常不会有变化的
 
-1.		zh-Hans//不要动这个目录
-2.		Update//不要动这个目录
-2.1.		ICSharpCode.SharpZipLib.dll
-2.2.		Lin.BGA.Update.exe
-2.3			Lin.BGA.Update.exe.config
-2.4			Newtonsoft.Json.dll
-3.		AxInterop.WMPLib.dll//不要动这个目录
-4.		EntityFramework.dll//不要动这个目录
-5.		Interop.WMPLib.dll//不要动这个目录
-6.		KinnSoft.Excel.OfficeOpenXml.dll//不要动这个目录
-7.		Lin.BGA.APIClient.dll
-8.		Lin.BGA.Model.dll
-9.		Newtonsoft.Json.dll//不要动这个目录
-10.		ThoughtWorks.QRCode.dll
-11.		Tool.dll
-12.		海底捞门店通知音乐播放器.exe
-13.		海底捞门店通知音乐播放器.exe.config
-14.		海底捞门店通知音乐播放器.exe.manifest
-
-15 457 Framework
 

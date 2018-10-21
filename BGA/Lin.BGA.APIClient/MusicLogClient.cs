@@ -72,8 +72,16 @@ namespace Lin.BGA.APIClient
 
             Tool.AsyncHelper.Run<bool>(() => {
                 List<MusicLogInfo> list = GetClient();
-                list = list.Where(a => a.FinishConfirmTime > DicInfo.DateZone).ToList();
+                if (null==list|| list.Count()==0)
+                {
+                    return true;
+                }
+                list = list.Where(a => a.FinishConfirmTime > DicInfo.DateZone ).ToList();
                 string json = Newtonsoft.Json.JsonConvert.SerializeObject(list);
+                if (string.IsNullOrEmpty(json))
+                {
+                    return true;
+                }
                 APIHellper apiHelper = new APIHellper();
                 string URL = "MusicLog/Create";
                 URL = APIHellper.GetAPI(URL, string.Empty);
